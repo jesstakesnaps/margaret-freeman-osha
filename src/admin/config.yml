@@ -67,6 +67,11 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - label: "Featured Image"
+        name: "image"
+        widget: "image"
+        required: false
+        hint: "Optional — upload a photo to show at the top of the story"
       - { label: "Body", name: "body", widget: "markdown" }
 
   # ── ART ─────────────────────────────────────────────────
@@ -84,17 +89,11 @@ collections:
       - label: "Medium"
         name: "medium"
         widget: "string"
-        hint: "e.g. Collage & oil on panel, 35mm film print"
+        required: false
+        hint: "e.g. Oil on panel, 35mm film print"
 
       - { label: "Year", name: "year", widget: "number",
-          value_type: "int", min: 2000, max: 2100, default: 2025 }
-
-      - label: "Price (USD)"
-        name: "price"
-        widget: "number"
-        value_type: "int"
-        min: 1
-        hint: "Enter price in dollars, e.g. 285"
+          value_type: "int", min: 2000, max: 2100, default: 2025, required: false }
 
       - label: "Featured in gallery?"
         name: "featured"
@@ -111,6 +110,7 @@ collections:
       - label: "Description"
         name: "description"
         widget: "text"
+        required: false
         hint: "A short description shown on the piece's detail page"
 
       - label: "Edition Info (photography only)"
@@ -134,16 +134,16 @@ collections:
           hint: "One or two sentences shown on the recipes page" }
 
       - { label: "Prep & Cook Time", name: "time", widget: "string",
-          hint: "e.g. 1h 20m" }
+          required: false, hint: "e.g. 1h 20m" }
 
       - { label: "Serves", name: "serves", widget: "string",
-          hint: "e.g. Serves 8" }
+          required: false, hint: "e.g. Serves 8" }
 
       - label: "Featured recipe?"
         name: "featured"
         widget: "boolean"
         default: false
-        hint: "Check to show this recipe in the featured slot"
+        hint: "Check to show this recipe in the featured slot on the homepage"
 
       - label: "Image"
         name: "image"

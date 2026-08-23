@@ -104,10 +104,7 @@ solidNav: true
 
 <div class="art-body">
 
-  <p class="art-eyebrow">
-    {% if category == "mixed-media" %}Mixed Media{% elif category == "photography" %}Photography{% else %}{{ category | capitalize }}{% endif %}
-    {% if medium %} · {{ medium }}{% endif %}
-  </p>
+  {% if medium %}<p class="art-eyebrow">{{ medium }}</p>{% endif %}
   <h1 class="art-title">{{ title }}</h1>
 
   <div class="art-specs">

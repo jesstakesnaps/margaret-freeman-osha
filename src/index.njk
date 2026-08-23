@@ -284,12 +284,11 @@ title: Stories, Recipes & Art by Margaret Freeman Osha
     </a>
     {% else %}
     <div class="recipe-featured reveal">
-      <div class="recipe-featured-img">🥧</div>
+      <div class="recipe-featured-img">🍽</div>
       <div class="recipe-featured-body">
-        <h3>Grandmother's Apple & Cardamom Tart</h3>
-        <p style="font-size:1.05rem;font-weight:300;line-height:1.7;color:var(--charcoal);">A buttery, spiced tart that fills my whole kitchen with warmth. This recipe has been in my family for three generations.</p>
-        
-        <a href="/recipes/" class="btn-primary" style="font-size:0.72rem; margin-top: 1.5rem; display: inline-block;">View Full Recipe</a>
+        <h3>Recipes coming soon</h3>
+        <p style="font-size:1.05rem;font-weight:300;line-height:1.7;color:var(--charcoal);">Time-tested recipes from my Vermont kitchen — check back shortly.</p>
+        <a href="/recipes/" class="btn-primary" style="font-size:0.72rem; margin-top: 1.5rem; display: inline-block;">View All Recipes</a>
       </div>
     </div>
     {% endif %}
@@ -298,16 +297,9 @@ title: Stories, Recipes & Art by Margaret Freeman Osha
       {% for recipe in recentRecipes %}
         {% if loop.index <= 4 %}
         <a href="{{ recipe.url }}" class="recipe-mini reveal">
-          <div class="recipe-mini-icon rmi{{ loop.index }}">
-            {% if recipe.data.category == "traditional-foodways" %}🫕
-            {% elif recipe.data.category == "baking" %}🍞
-            {% elif recipe.data.category == "local" %}🌿
-            {% elif recipe.data.category == "baking" %}🍞
-            {% else %}🧀{% endif %}
-          </div>
+          <div class="recipe-mini-icon rmi{{ loop.index }}">🍽</div>
           <div class="recipe-mini-text">
             <h4>{{ recipe.data.title }}</h4>
-            <p>{{ recipe.data.category | capitalize }} · {{ recipe.data.time }}</p>
           </div>
         </a>
         {% endif %}
