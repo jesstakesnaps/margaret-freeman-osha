@@ -2,7 +2,7 @@
 title: Honey Ginger Basil Lemonade
 date: 2025-09-20
 excerpt: A homemade pitcher of lemonade sweetened with honey and garnished with
-  fresh ginger root and basil,
+  fresh ginger root and basil.
 time: 15m
 serves: "2"
 featured: true
