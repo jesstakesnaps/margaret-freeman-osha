@@ -1,0 +1,166 @@
+---
+layout: base.njk
+title: Book
+navActive: book
+solidNav: true
+---
+
+<style>
+  /* ── HERO ── */
+  .book-hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh; background: var(--warm-white); }
+  .book-hero-left { display: flex; align-items: center; justify-content: center; background: var(--warm-white); padding: 4rem 3rem; }
+  .book-hero-left img { max-width: 500px; width: 100%; box-shadow: 0 24px 80px rgba(44,26,14,0.15); display: block; }
+  .book-hero-right { display: flex; flex-direction: column; justify-content: center; padding: 5rem 5rem 5rem 4rem; }
+  .book-eyebrow { font-family: 'Lato', sans-serif; font-size: 0.68rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 1rem; }
+  .book-title { font-family: 'Cinzel', serif; font-size: clamp(2.2rem, 4vw, 3.8rem); font-weight: 400; line-height: 1.1; color: var(--deep-brown); margin-bottom: 0.5rem; }
+  .book-subtitle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.4rem; color: var(--sienna); margin-bottom: 1.5rem; font-weight: 300; }
+  .book-pull-quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; font-weight: 300; line-height: 1.75; color: var(--charcoal); border-left: 2px solid var(--terracotta); padding-left: 1.5rem; margin: 0 0 2rem; }
+  .book-pull-quote cite { display: block; margin-top: 0.8rem; font-style: normal; font-family: 'Lato', sans-serif; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sienna); }
+  .book-meta { display: flex; flex-direction: column; gap: 0.6rem; padding: 1.8rem 0; border-top: 1px solid rgba(44,26,14,0.1); border-bottom: 1px solid rgba(44,26,14,0.1); }
+  .book-meta-item { font-family: 'Lato', sans-serif; font-size: 0.78rem; letter-spacing: 0.08em; color: var(--sienna); display: flex; gap: 0.8rem; }
+  .book-meta-label { color: var(--deep-brown); font-weight: 400; min-width: 80px; }
+
+  /* ── ABOUT ── */
+  .about-book { padding: 8rem; background: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+  .about-book h2 { font-family: 'Cinzel', serif; font-size: clamp(1.8rem,3vw,2.8rem); font-weight: 400; color: var(--deep-brown); margin-bottom: 2rem; line-height: 1.2; }
+  .about-book p { font-size: 1.1rem; font-weight: 300; line-height: 1.9; color: var(--charcoal); margin-bottom: 1.5rem; }
+  .about-book-quote { background: var(--warm-white); padding: 3rem; border-left: 2px solid var(--terracotta); }
+  .about-book-quote blockquote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.5rem; font-weight: 300; line-height: 1.6; color: var(--deep-brown); margin-bottom: 1.2rem; }
+  .about-book-quote cite { font-family: 'Lato', sans-serif; font-style: normal; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sienna); }
+
+  /* ── EVENTS ── */
+  .events-section { background: linear-gradient(160deg, #3b2510, #1a0f08); padding: 8rem; }
+  .events-header { text-align: center; margin-bottom: 4rem; }
+  .events-header .section-label { font-family: 'Lato', sans-serif; font-size: 0.68rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
+  .events-header h2 { font-family: 'Cinzel', serif; font-size: clamp(2rem,3.5vw,3rem); font-weight: 400; color: var(--cream); }
+  .events-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 860px; margin: 0 auto; }
+  .event-card { background: rgba(245,240,232,0.05); border: 1px solid rgba(245,240,232,0.1); padding: 2.5rem; display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: start; transition: background 0.3s, border-color 0.3s; }
+  .event-card:hover { background: rgba(245,240,232,0.08); border-color: rgba(201,168,76,0.3); }
+  .event-date-block { text-align: center; min-width: 80px; }
+  .event-month { font-family: 'Lato', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.3rem; }
+  .event-day { font-family: 'Cinzel', serif; font-size: 3rem; font-weight: 400; color: var(--cream); line-height: 1; display: block; }
+  .event-year { font-family: 'Lato', sans-serif; font-size: 0.65rem; letter-spacing: 0.15em; color: rgba(245,240,232,0.4); display: block; margin-top: 0.3rem; }
+  .event-info h3 { font-family: 'Cinzel', serif; font-size: 1.2rem; font-weight: 400; color: var(--cream); margin-bottom: 0.5rem; line-height: 1.3; }
+  .event-info p { font-size: 1rem; font-weight: 300; color: rgba(245,240,232,0.65); line-height: 1.75; margin-bottom: 1rem; }
+  .event-details { display: flex; flex-direction: column; gap: 0.4rem; }
+  .event-detail { font-family: 'Lato', sans-serif; font-size: 0.72rem; letter-spacing: 0.08em; color: rgba(245,240,232,0.5); display: flex; align-items: center; gap: 0.5rem; }
+  .event-detail a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.3); }
+  .event-detail a:hover { border-bottom-color: var(--gold); }
+  .event-badge { display: inline-block; font-family: 'Lato', sans-serif; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; background: var(--terracotta); color: white; padding: 0.3rem 0.7rem; margin-bottom: 0.8rem; }
+  .events-empty { text-align: center; padding: 4rem 0; }
+  .events-empty p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; color: rgba(245,240,232,0.5); }
+
+  /* ── BOOKINGS ── */
+  .bookings-band { background: var(--warm-white); padding: 7rem 8rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .bookings-left h2 { font-family: 'Cinzel', serif; font-size: clamp(1.8rem,3vw,2.8rem); font-weight: 400; color: var(--deep-brown); line-height: 1.2; margin-bottom: 1.2rem; }
+  .bookings-right { display: flex; flex-direction: column; gap: 1rem; }
+  .booking-contact { display: flex; align-items: flex-start; gap: 1.2rem; padding: 1.5rem; border: 0.5px solid rgba(44,26,14,0.12); }
+  .booking-contact-icon { font-size: 1.4rem; }
+  .booking-contact h4 { font-family: 'Cinzel', serif; font-size: 0.9rem; font-weight: 400; color: var(--deep-brown); margin-bottom: 0.3rem; }
+  .booking-contact p { font-size: 0.95rem; font-weight: 300; color: var(--charcoal); line-height: 1.6; }
+  .booking-contact a { color: var(--terracotta); text-decoration: none; border-bottom: 1px solid rgba(193,104,74,0.3); }
+
+  @media(max-width:1024px){
+    .book-hero { grid-template-columns: 1fr; }
+    .book-hero-right { padding: 3rem; }
+    .about-book, .bookings-band { padding: 5rem 3rem; grid-template-columns: 1fr; gap: 3rem; }
+    .events-section { padding: 5rem 3rem; }
+    .event-card { grid-template-columns: 1fr; gap: 1rem; }
+  }
+  @media(max-width:720px){
+    .book-hero-right { padding: 2rem 1.5rem; }
+    .about-book, .bookings-band { padding: 4rem 1.5rem; }
+    .events-section { padding: 4rem 1.5rem; }
+  }
+</style>
+
+<!-- HERO -->
+<div class="book-hero">
+  <div class="book-hero-left">
+    <img src="/assets/images/a-farmhouse-notebook-cover.png" alt="A Farmhouse Notebook — Cover">
+  </div>
+  <div class="book-hero-right">
+    <p class="book-eyebrow">Forthcoming</p>
+    <h1 class="book-title">A Farmhouse Notebook</h1>
+    <p class="book-subtitle">Stories, Recipes & a Life Rooted in Vermont</p>
+    <blockquote class="book-pull-quote">
+      "Margaret beautifully captures Vermont's spirit in this delightful book. From the barn to the back porch to the pantry, her stories celebrate the people, places, and traditions that define the Green Mountains and honor those who live off the land."
+      <cite>— Anson Tebbetts, Vermont Secretary of Agriculture, Food, and Markets</cite>
+    </blockquote>
+    <div class="book-meta">
+      <div class="book-meta-item"><span class="book-meta-label">Author</span>Margaret Freeman Osha</div>
+      <div class="book-meta-item"><span class="book-meta-label">Publisher</span>Krongo Books</div>
+      <div class="book-meta-item"><span class="book-meta-label">Release</span>To be announced</div>
+    </div>
+    {% if book.show_button and book.purchase_url %}
+    <a href="{{ book.purchase_url }}" target="_blank" rel="noopener" class="btn-purchase" style="display:inline-block;margin-top:2rem;font-family:'Lato',sans-serif;font-size:0.75rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--warm-white);background:var(--deep-brown);padding:1rem 2.5rem;text-decoration:none;transition:background 0.3s;">{{ book.button_label }}</a>
+    {% endif %}
+  </div>
+</div>
+
+<!-- ABOUT THE BOOK -->
+<div class="about-book">
+  <div>
+    <h2>About the Book</h2>
+    <p>From a cabin overlooking a sheep pasture, sixth-generation Vermonter Margaret Freeman Osha, the daughter of farmers, mines Vermont's agricultural past for practical wisdom to share with the readers of her hometown newspaper. Her deep love of Vermont and its people shapes every page of A Farmhouse Notebook, a collection of stories, historical essays, and recipes first published in the White River Valley Herald.</p>
+    <p>The book centers on producing, preserving, and preparing food—knowledge she began sharing with friends and neighbors through cooking classes held in her farmhouse kitchen. Her wisdom applies wherever people seek a deeper connection to the food they eat and the land it springs from.</p>
+  </div>
+  <div class="about-book-quote">
+    <blockquote>"Instructions for Living Life: Pay attention, be astonished, tell about it."</blockquote>
+    <cite>— Mary Oliver</cite>
+  </div>
+</div>
+
+<!-- SPEAKING EVENTS -->
+<div class="events-section">
+  <div class="events-header">
+    <span class="section-label">On the Road</span>
+    <h2>Speaking & Appearances</h2>
+  </div>
+  <div class="events-grid">
+    {% set sortedEvents = collections.events | sort(attribute="data.date") %}
+    {% if sortedEvents.length %}
+      {% for event in sortedEvents %}
+      <div class="event-card">
+        <div class="event-date-block">
+          <span class="event-month">{{ event.data.date | dateDisplay("MMM") }}</span>
+          <span class="event-day">{{ event.data.date | dateDisplay("DD") }}</span>
+          <span class="event-year">{{ event.data.date | dateDisplay("YYYY") }}</span>
+        </div>
+        <div class="event-info">
+          {% if event.data.featured %}<span class="event-badge">Upcoming</span>{% endif %}
+          <h3>{{ event.data.title }}</h3>
+          {% if event.data.description %}<p>{{ event.data.description }}</p>{% endif %}
+          <div class="event-details">
+            {% if event.data.time %}<span class="event-detail">🕙 {{ event.data.time }}</span>{% endif %}
+            {% if event.data.location %}<span class="event-detail">📍 {{ event.data.location }}, {{ event.data.city }}</span>{% endif %}
+            {% if event.data.admission %}<span class="event-detail">🎟 {{ event.data.admission }}</span>{% endif %}
+            {% if event.data.contact %}<span class="event-detail">ℹ️ {{ event.data.contact }}</span>{% endif %}
+            {% if event.data.website %}<span class="event-detail">🌐 <a href="{{ event.data.website }}" target="_blank" rel="noopener">{{ event.data.website_label or event.data.website }}</a></span>{% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    {% else %}
+      <div class="events-empty">
+        <p>No upcoming events at the moment — check back soon.</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<!-- BOOKINGS -->
+<div class="bookings-band">
+  <div class="bookings-left">
+    <h2>Invite Margaret to Speak</h2>
+  </div>
+  <div class="bookings-right">
+    <div class="booking-contact">
+      <span class="booking-contact-icon">✉️</span>
+      <div>
+        <h4>Booking Enquiries</h4>
+        <p>Please email booking agent Sara at <a href="mailto:sara@korongobooks.com">sara@korongobooks.com</a></p>
+      </div>
+    </div>
+  </div>
+</div>

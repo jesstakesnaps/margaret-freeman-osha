@@ -1,0 +1,161 @@
+---
+layout: base.njk
+navActive: art
+solidNav: true
+---
+
+<style>
+  .art-back-link {
+    display: inline-block; font-family: 'Lato', sans-serif; font-size: 0.7rem;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--sienna);
+    text-decoration: none; padding: 1.5rem 3rem 0; transition: color 0.2s;
+  }
+  .art-back-link:hover { color: var(--terracotta); }
+
+  .art-image-wrap {
+    background: #1c1410; width: 100%;
+    display: flex; align-items: center; justify-content: center;
+    padding: 3rem; margin-top: 1rem; position: relative;
+  }
+  .art-image-wrap img {
+    max-width: 640px; width: 100%; max-height: 540px; object-fit: contain; display: block;
+  }
+  .art-image-placeholder {
+    max-width: 640px; width: 100%; aspect-ratio: 4/3; background: #5a3828;
+    display: flex; align-items: center; justify-content: center; font-size: 10rem;
+  }
+  .new-banner {
+    position: absolute; top: 1.5rem; left: 1.5rem;
+    font-family: 'Lato', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em;
+    text-transform: uppercase; background: var(--terracotta); color: white; padding: 0.45rem 1rem;
+  }
+
+  .art-body { max-width: 860px; margin: 0 auto; padding: 3.5rem 2rem 6rem; }
+  .art-eyebrow {
+    font-family: 'Lato', sans-serif; font-size: 0.68rem; letter-spacing: 0.35em;
+    text-transform: uppercase; color: var(--terracotta); margin-bottom: 0.6rem;
+  }
+  .art-title {
+    font-family: 'Cinzel', serif; font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400; line-height: 1.1; color: var(--deep-brown); margin-bottom: 1rem;
+  }
+  .art-specs {
+    display: flex; flex-wrap: wrap; gap: 1.2rem;
+    font-family: 'Lato', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em;
+    color: var(--sienna); padding-bottom: 1.6rem;
+    border-bottom: 1px solid rgba(44,26,14,0.1); margin-bottom: 2rem;
+  }
+  .art-description p {
+    font-size: 1.1rem; font-weight: 300; line-height: 1.88;
+    color: var(--charcoal); margin-bottom: 1.2rem; max-width: 640px;
+  }
+
+  .detail-section { border-top: 1px solid rgba(44,26,14,0.12); padding-top: 2rem; margin: 3rem 0; }
+  .detail-section h3 { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 400; color: var(--deep-brown); margin-bottom: 1rem; }
+  .detail-list { list-style: none; padding: 0; }
+  .detail-list li { font-size: 0.95rem; font-weight: 300; color: var(--charcoal); padding: 0.5rem 0; border-bottom: 1px solid rgba(44,26,14,0.07); display: flex; gap: 1rem; }
+  .detail-list li:last-child { border-bottom: none; }
+  .detail-label { font-family: 'Lato', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sienna); min-width: 90px; padding-top: 2px; }
+
+  .more-works { border-top: 1px solid rgba(44,26,14,0.12); padding-top: 2.5rem; }
+  .more-works h2 { font-family: 'Cinzel', serif; font-size: 1.3rem; font-weight: 400; color: var(--deep-brown); margin-bottom: 1.8rem; }
+  .more-works-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .more-work-card { background: var(--warm-white); text-decoration: none; display: block; transition: transform 0.3s, box-shadow 0.3s; }
+  .more-work-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px var(--soft-shadow); }
+  .more-work-thumb { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 3rem; overflow: hidden; }
+  .more-work-thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .mwt1{background:#608060;} .mwt2{background:#507080;} .mwt3{background:#806040;}
+  .mwt4{background:#7a5050;} .mwt5{background:#606040;} .mwt6{background:#405060;}
+  .more-work-body { padding: 0.9rem 1rem 1.1rem; }
+  .more-work-tag { font-family: 'Lato', sans-serif; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 0.3rem; }
+  .more-work-body h3 { font-family: 'Cinzel', serif; font-size: 0.9rem; font-weight: 400; color: var(--deep-brown); line-height: 1.3; }
+
+  .enquire-note {
+    font-family: 'Lato', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em;
+    color: var(--sienna); margin-top: 2rem; line-height: 1.7;
+  }
+  .enquire-note a { color: var(--terracotta); text-decoration: none; border-bottom: 1px solid rgba(193,104,74,0.3); }
+  .enquire-note a:hover { border-bottom-color: var(--terracotta); }
+
+  @media(max-width:1024px){
+    .art-body { padding: 3rem; }
+    .more-works-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media(max-width:720px){
+    .art-back-link { padding: 1rem 1.5rem 0; }
+    .art-image-wrap { padding: 1.5rem; }
+    .art-body { padding: 2rem 1.5rem 4rem; }
+    .more-works-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<a href="/art/" class="art-back-link">← Back to gallery</a>
+
+<div class="art-image-wrap">
+  {% if image %}
+    <img src="{{ image }}" alt="{{ title }}">
+  {% else %}
+    <div class="art-image-placeholder">
+      {% if category == "photography" %}📷{% else %}🎨{% endif %}
+    </div>
+  {% endif %}
+  {% if featured %}<span class="new-banner">New Work</span>{% endif %}
+</div>
+
+<div class="art-body">
+
+  <p class="art-eyebrow">
+    {% if category == "mixed-media" %}Mixed Media{% elif category == "photography" %}Photography{% else %}{{ category | capitalize }}{% endif %}
+    {% if medium %} · {{ medium }}{% endif %}
+  </p>
+  <h1 class="art-title">{{ title }}</h1>
+
+  <div class="art-specs">
+    {% if medium %}<span>🎨 {{ medium }}</span>{% endif %}
+    {% if year %}<span>📅 {{ year }}</span>{% endif %}
+    {% if edition %}<span>🔢 {{ edition }}</span>{% endif %}
+  </div>
+
+  <div class="art-description">
+    {{ content | safe }}
+    {% if not content %}<p>An original work by Margaret Freeman Osha, made in her Vermont studio.</p>{% endif %}
+  </div>
+
+  <div class="detail-section">
+    <h3>Details</h3>
+    <ul class="detail-list">
+      <li><span class="detail-label">Title</span>{{ title }}</li>
+      {% if medium %}<li><span class="detail-label">Medium</span>{{ medium }}</li>{% endif %}
+      {% if year %}<li><span class="detail-label">Year</span>{{ year }}</li>{% endif %}
+      {% if edition %}<li><span class="detail-label">Edition</span>{{ edition }}</li>{% endif %}
+    </ul>
+  </div>
+
+
+  <div class="more-works">
+    <h2>More from the Gallery</h2>
+    <div class="more-works-grid">
+      {% set thumbClasses = ["mwt1","mwt2","mwt3","mwt4","mwt5","mwt6"] %}
+      {% set thumbEmojis = ["🌿","🌅","🦊","🌊","🌻","🌄"] %}
+      {% set count = 0 %}
+      {% for piece in collections.art | reverse %}
+        {% if piece.url != page.url and count < 3 %}
+          {% set count = count + 1 %}
+          <a href="{{ piece.url }}" class="more-work-card">
+            <div class="more-work-thumb {{ thumbClasses[loop.index0 % 6] }}">
+              {% if piece.data.image %}
+                <img src="{{ piece.data.image }}" alt="{{ piece.data.title }}">
+              {% else %}
+                {{ thumbEmojis[loop.index0 % 6] }}
+              {% endif %}
+            </div>
+            <div class="more-work-body">
+              <h3>{{ piece.data.title }}</h3>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+</div>

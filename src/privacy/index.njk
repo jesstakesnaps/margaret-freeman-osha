@@ -1,0 +1,194 @@
+---
+layout: base.njk
+title: Privacy & Legal
+solidNav: true
+---
+
+<style>
+  .privacy-header {
+    padding: 9rem 8rem 4rem;
+    background: var(--warm-white);
+    position: relative; overflow: hidden;
+  }
+  .privacy-header::after {
+    content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 60px;
+    background: var(--cream); clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .privacy-eyebrow {
+    font-family: 'Lato', sans-serif; font-size: 0.68rem; font-weight: 400;
+    letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--terracotta); margin-bottom: 1rem;
+  }
+  .privacy-title {
+    font-family: 'Cinzel', serif; font-size: clamp(2.2rem, 4vw, 4rem);
+    font-weight: 400; line-height: 1.1; color: var(--deep-brown);
+    margin-bottom: 1rem; max-width: 600px;
+  }
+  .privacy-updated {
+    font-family: 'Lato', sans-serif; font-size: 0.72rem;
+    letter-spacing: 0.12em; color: var(--sienna); margin-top: 1rem;
+  }
+  .privacy-body { max-width: 760px; margin: 0 auto; padding: 5rem 2rem 8rem; }
+  .privacy-intro {
+    font-size: 1.15rem; font-weight: 300; line-height: 1.88;
+    color: var(--charcoal); margin-bottom: 3rem;
+    padding-bottom: 3rem; border-bottom: 1px solid rgba(44,26,14,0.1);
+  }
+  .privacy-section { margin-bottom: 3rem; }
+  .privacy-section h2 {
+    font-family: 'Cinzel', serif; font-size: 1.2rem; font-weight: 400;
+    color: var(--deep-brown); margin-bottom: 1rem;
+    padding-bottom: 0.6rem; border-bottom: 1px solid rgba(44,26,14,0.1);
+  }
+  .privacy-section p {
+    font-size: 1.08rem; font-weight: 300; line-height: 1.88;
+    color: var(--charcoal); margin-bottom: 1rem;
+  }
+  .privacy-section ul { margin: 0.5rem 0 1rem 1.5rem; padding: 0; }
+  .privacy-section ul li {
+    font-size: 1.05rem; font-weight: 300; line-height: 1.8;
+    color: var(--charcoal); margin-bottom: 0.5rem;
+  }
+  .privacy-section a {
+    color: var(--terracotta); text-decoration: none;
+    border-bottom: 1px solid rgba(193,104,74,0.3); transition: border-color 0.2s;
+  }
+  .privacy-section a:hover { border-bottom-color: var(--terracotta); }
+  .privacy-table { width: 100%; border-collapse: collapse; margin: 1.2rem 0 1.5rem; }
+  .privacy-table th {
+    font-family: 'Lato', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--sienna);
+    text-align: left; padding: 0.6rem 1rem 0.6rem 0;
+    border-bottom: 1px solid rgba(44,26,14,0.15);
+  }
+  .privacy-table td {
+    font-size: 1rem; font-weight: 300; color: var(--charcoal);
+    padding: 0.7rem 1rem 0.7rem 0; line-height: 1.6;
+    border-bottom: 1px solid rgba(44,26,14,0.07); vertical-align: top;
+  }
+  .section-divider {
+    border: none; border-top: 2px solid rgba(44,26,14,0.1);
+    margin: 4rem 0;
+  }
+  .privacy-contact {
+    background: var(--warm-white); padding: 2.5rem;
+    border-left: 2px solid var(--terracotta); margin-top: 4rem;
+  }
+  .privacy-contact h3 {
+    font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 400;
+    color: var(--deep-brown); margin-bottom: 0.8rem;
+  }
+  .privacy-contact p {
+    font-size: 1.05rem; font-weight: 300; line-height: 1.8; color: var(--charcoal);
+    margin-bottom: 0.5rem;
+  }
+  .privacy-contact p:last-child { margin-bottom: 0; }
+  @media(max-width:1024px){ .privacy-header { padding: 8rem 3rem 4rem; } .privacy-body { padding: 4rem 3rem 6rem; } }
+  @media(max-width:720px){ .privacy-header { padding: 7rem 1.5rem 3rem; } .privacy-body { padding: 3rem 1.5rem 5rem; } .privacy-table { font-size: 0.9rem; } }
+</style>
+
+<div class="privacy-header">
+  <p class="privacy-eyebrow">Margaret Freeman Osha</p>
+  <h1 class="privacy-title">Privacy & Legal</h1>
+  <p class="privacy-updated">Last updated: July 2026</p>
+</div>
+
+<div class="privacy-body">
+
+  <p class="privacy-intro">
+    This page covers two things: how this site handles your personal information, and the legal terms that apply to the content published here. It is written in plain English because that is more honest than pages of legal boilerplate.
+  </p>
+
+  <!-- PRIVACY SECTION -->
+  <div class="privacy-section">
+    <h2>1. Privacy — Who This Applies To</h2>
+    <p>This policy applies to anyone who visits this site, regardless of where you are located. If you are in the EU or UK, additional rights under GDPR apply (Section 6). If you are in California, additional rights under CCPA apply (Section 7).</p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>2. What Information Is Collected</h2>
+    <p>This site does not use Google Analytics or any third-party analytics tools. I do not track your browsing behaviour, build a profile of your visit, or sell data about you to anyone.</p>
+    <p>Netlify, which hosts this site, may collect basic server logs including your IP address and the pages you request. This is standard infrastructure logging governed by <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">Netlify's privacy policy</a>. I do not have access to this data in any personally identifiable form.</p>
+    <p>If you contact me by email, I will use your email address only to reply. I do not add your address to any mailing list and I do not retain email correspondence beyond what is reasonably necessary.</p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>3. Cookies</h2>
+    <p>This site uses a minimal number of cookies to function correctly. These are not advertising or tracking cookies.</p>
+    <table class="privacy-table">
+      <thead>
+        <tr>
+          <th>Cookie</th>
+          <th>Purpose</th>
+          <th>Set by</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Netlify Identity</td>
+          <td>Used only for the site's CMS admin area — not set for regular visitors</td>
+          <td>Netlify</td>
+          <td>Session</td>
+        </tr>
+        <tr>
+          <td>Google Fonts</td>
+          <td>Font files requested from Google's servers when you visit the site</td>
+          <td>Google</td>
+          <td>Session</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>This site does not use advertising cookies, social media tracking pixels, or any cookie that follows you across other websites.</p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>4. Third Party Services</h2>
+    <ul>
+      <li><strong>Netlify</strong> — website hosting. <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">Netlify Privacy Policy</a></li>
+      <li><strong>Google Fonts</strong> — typography. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
+    </ul>
+    <p>I do not use advertising networks, data brokers, payment processors, or social media tracking of any kind.</p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>5. Data Retention</h2>
+    <p>Email correspondence is retained only as long as is reasonably necessary, and then deleted. I do not retain any other personal data.</p>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- LEGAL / COPYRIGHT SECTION -->
+  <div class="privacy-section">
+    <h2>6. Intellectual Property</h2>
+    <p>Everything on this site — the writing, essays, recipes, photographs, and artwork — is the original work of Margaret Freeman Osha and is protected by copyright. All rights are reserved.</p>
+    <p>You are welcome to share links to content, quote briefly with clear attribution, or print a recipe for personal use. You may not, without written permission:</p>
+    <ul>
+      <li>Reproduce or republish articles, essays, or stories in full anywhere</li>
+      <li>Use recipes commercially — in a cookbook, food product, or any revenue-generating context</li>
+      <li>Reproduce, copy, or claim any artwork or photography as your own</li>
+    </ul>
+    <p>To request permission, please write to <a href="mailto:turkeyhillfarmvt@gmail.com">turkeyhillfarmvt@gmail.com</a>.</p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>7. Recipes & Content</h2>
+    <p>Recipes are shared for personal, non-commercial home use. They have been tested in my kitchen, but results may vary and I am not liable if something does not turn out as expected. If you have food allergies or dietary requirements, please verify ingredients yourself.</p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>8. Artwork & Photography</h2>
+    <p>All artwork and photography displayed on this site is the original work of Margaret Freeman Osha. Images may not be downloaded, reproduced, or used in any form without written permission. If you are interested in a piece, please contact me at <a href="mailto:turkeyhillfarmvt@gmail.com">turkeyhillfarmvt@gmail.com</a>.</p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>9. Limitation of Liability</h2>
+    <p>This site and its content are provided in good faith on an "as is" basis. To the fullest extent permitted by law, Margaret Freeman Osha is not liable for any loss or damage arising from your use of this site or reliance on its content.</p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>10. Changes</h2>
+    <p>This page may be updated from time to time. The date at the top reflects when it was last revised. Continued use of the site after any update constitutes acceptance of the revised terms.</p>
+  </div>
+
+</div>

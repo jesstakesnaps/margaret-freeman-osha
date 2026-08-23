@@ -1,0 +1,12 @@
+{
+  "name": "margaret-freeman-osha",
+  "version": "1.0.0",
+  "description": "Personal website of Margaret Freeman Osha",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

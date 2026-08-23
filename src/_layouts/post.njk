@@ -1,0 +1,138 @@
+---
+layout: base.njk
+navActive: stories
+solidNav: true
+---
+
+<style>
+  /* ── HERO: with image (split layout) ── */
+  .post-hero-split {
+    display: grid; grid-template-columns: 1.1fr 1fr;
+    min-height: 520px; background: var(--warm-white);
+  }
+  .post-hero-img {
+    position: relative; overflow: hidden; min-height: 520px;
+  }
+  .post-hero-img img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;
+  }
+  .post-hero-img::after {
+    content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 100px;
+    background: linear-gradient(to right, transparent, var(--warm-white));
+  }
+  .post-hero-text {
+    padding: 8rem 3.5rem 4rem;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+
+  /* ── HERO: no image (text only) ── */
+  .post-hero-plain {
+    padding: 9rem 8rem 5rem; background: var(--warm-white);
+    position: relative; overflow: hidden;
+  }
+  .post-hero-plain::after {
+    content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 60px;
+    background: var(--cream); clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  /* ── SHARED HERO ELEMENTS ── */
+  .post-eyebrow {
+    font-family: 'Lato', sans-serif; font-size: 0.68rem; letter-spacing: 0.35em;
+    text-transform: uppercase; color: var(--terracotta); margin-bottom: 1rem;
+  }
+  .post-title {
+    font-family: 'Cinzel', serif; font-size: clamp(2rem, 3.5vw, 3.2rem);
+    font-weight: 400; line-height: 1.1; color: var(--deep-brown);
+    margin-bottom: 1rem; max-width: 600px;
+  }
+  .post-hero-plain .post-title { font-size: clamp(2.2rem, 4vw, 4rem); max-width: 700px; }
+  .post-excerpt {
+    font-size: 1.1rem; font-weight: 300; line-height: 1.75;
+    color: var(--charcoal); max-width: 420px; margin-bottom: 1.2rem;
+  }
+  .post-hero-plain .post-excerpt { max-width: 560px; }
+  .post-meta {
+    font-family: 'Lato', sans-serif; font-size: 0.72rem; letter-spacing: 0.12em;
+    color: var(--sienna); display: flex; gap: 1.5rem;
+    margin-top: 0.8rem; padding-top: 1.2rem;
+    border-top: 1px solid rgba(44,26,14,0.1);
+  }
+
+  /* ── BODY ── */
+  .post-body { max-width: 720px; margin: 0 auto; padding: 5rem 2rem 7rem; }
+  .post-body p { font-size: 1.18rem; font-weight: 300; line-height: 1.95; color: var(--charcoal); margin-bottom: 1.5rem; }
+  .post-body h2 { font-family: 'Cinzel', serif; font-size: 1.5rem; font-weight: 400; color: var(--deep-brown); margin: 3rem 0 1.2rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(44,26,14,0.12); }
+  .post-body h3 { font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 400; color: var(--deep-brown); margin: 2rem 0 0.8rem; }
+  .post-body blockquote { border-left: 2px solid var(--terracotta); padding-left: 1.5rem; margin: 2rem 0; font-style: italic; color: var(--sienna); font-size: 1.2rem; line-height: 1.7; }
+  .post-body ul, .post-body ol { margin: 0 0 1.5rem 1.5rem; }
+  .post-body li { font-size: 1.1rem; font-weight: 300; line-height: 1.8; color: var(--charcoal); margin-bottom: 0.4rem; }
+  .post-body hr { border: none; border-top: 1px solid rgba(44,26,14,0.12); margin: 2.5rem 0; }
+
+  /* ── INLINE IMAGES in body ── */
+  .post-body img {
+    width: calc(100% + 4rem); margin-left: -2rem;
+    max-height: 480px; object-fit: cover;
+    display: block; margin-bottom: 0.5rem;
+  }
+  .post-body em:has(+ br), .post-body p > em:only-child {
+    font-family: 'Lato', sans-serif; font-size: 0.72rem; font-style: normal;
+    letter-spacing: 0.1em; color: var(--sienna); display: block; margin-bottom: 2rem;
+  }
+
+  /* ── BACK LINK ── */
+  .back-link {
+    font-family: 'Lato', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--sienna); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    margin-bottom: 3rem; transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--terracotta); }
+
+  @media(max-width:1024px){
+    .post-hero-split { grid-template-columns: 1fr; }
+    .post-hero-img { min-height: 320px; }
+    .post-hero-img::after { display: none; }
+    .post-hero-text { padding: 3rem; }
+    .post-hero-plain { padding: 8rem 3rem 4rem; }
+  }
+  @media(max-width:720px){
+    .post-hero-text { padding: 2rem 1.5rem; }
+    .post-hero-plain { padding: 7rem 1.5rem 3rem; }
+    .post-body { padding: 3rem 1.5rem 5rem; }
+    .post-body img { width: calc(100% + 3rem); margin-left: -1.5rem; }
+  }
+</style>
+
+{% if image %}
+  <!-- HERO WITH IMAGE -->
+  <div class="post-hero-split">
+    <div class="post-hero-img">
+      <img src="{{ image }}" alt="{{ title }}">
+    </div>
+    <div class="post-hero-text">
+      <p class="post-eyebrow">{{ category | capitalize }} · Margaret Freeman Osha</p>
+      <h1 class="post-title">{{ title }}</h1>
+      {% if excerpt %}<p class="post-excerpt">{{ excerpt }}</p>{% endif %}
+      <div class="post-meta">
+        <span>{{ date | dateDisplay }}</span>
+        <span>{{ category | capitalize }}</span>
+      </div>
+    </div>
+  </div>
+{% else %}
+  <!-- HERO WITHOUT IMAGE -->
+  <div class="post-hero-plain">
+    <p class="post-eyebrow">{{ category | capitalize }} · Margaret Freeman Osha</p>
+    <h1 class="post-title">{{ title }}</h1>
+    {% if excerpt %}<p class="post-excerpt">{{ excerpt }}</p>{% endif %}
+    <div class="post-meta">
+      <span>{{ date | dateDisplay }}</span>
+      <span>{{ category | capitalize }}</span>
+    </div>
+  </div>
+{% endif %}
+
+<div class="post-body">
+  <a href="/stories/" class="back-link">← Back to Stories</a>
+  {{ content | safe }}
+</div>

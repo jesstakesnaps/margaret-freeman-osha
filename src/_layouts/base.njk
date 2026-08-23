@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% if title %}{{ title }} — {% endif %}Margaret Freeman Osha</title>
+<meta name="description" content="{% if description %}{{ description }}{% else %}Margaret Freeman Osha — sixth-generation Vermont farmer, writer, artist, and home cook. Stories, recipes, and artwork from Brookfield, Vermont.{% endif %}">
+<meta property="og:title" content="{% if title %}{{ title }} — {% endif %}Margaret Freeman Osha">
+<meta property="og:description" content="{% if description %}{{ description }}{% else %}Margaret Freeman Osha — sixth-generation Vermont farmer, writer, artist, and home cook.{% endif %}">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/global.css">
+{% if pageCSS %}<style>{{ pageCSS | safe }}</style>{% endif %}
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+<nav id="navbar" {% if solidNav %}class="solid"{% endif %}>
+  <a href="/" class="nav-logo">MARGARET FREEMAN OSHA</a>
+  <ul class="nav-links">
+    <li><a href="/stories/" {% if navActive == "stories" %}class="active"{% endif %}>Stories</a></li>
+    <li><a href="/recipes/" {% if navActive == "recipes" %}class="active"{% endif %}>Recipes</a></li>
+    <li><a href="/art/" {% if navActive == "art" %}class="active"{% endif %}>Art</a></li>
+    <li><a href="/book/" {% if navActive == "book" %}class="active"{% endif %}>Book</a></li>
+    <li><a href="/about/" {% if navActive == "about" %}class="active"{% endif %}>About</a></li>
+  </ul>
+</nav>
+
+{% if announcement.show %}
+<div class="announcement-bar">
+  <p>
+    {{ announcement.text }}
+    {% if announcement.link_url and announcement.link_label %}
+    <a href="{{ announcement.link_url }}" target="_blank" rel="noopener">{{ announcement.link_label }} →</a>
+    {% endif %}
+  </p>
+</div>
+{% endif %}
+
+{{ content | safe }}
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo">MARGARET FREEMAN OSHA</a>
+      <p>With my husband, Stuart, I live in a picturesque log cabin that overlooks a serene sheep pasture in Brookfield, and my appreciation for the world around me is expressed through my artwork and writing.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Margaret Freeman Osha. All rights reserved.</span>
+    <div style="display:flex;gap:1.5rem;justify-content:flex-end;width:100%;">
+      <a href="/stories/">Stories</a>
+      <a href="/recipes/">Recipes</a>
+      <a href="/art/">Art</a>
+      <a href="/book/">Book</a>
+      <a href="/about/">About</a>
+      <a href="/privacy/">Privacy & Legal</a>
+      <a href="/about/">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

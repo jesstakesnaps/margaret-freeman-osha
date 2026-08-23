@@ -1,0 +1,379 @@
+---
+layout: base.njk
+title: Stories, Recipes & Art by Margaret Freeman Osha
+---
+
+<style>
+  /* ── HERO ── */
+  .hero {
+    display: grid; grid-template-columns: 1fr 1fr;
+    height: 1000px; position: relative; overflow: hidden; margin-top: 72px;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 4rem 4rem 4rem 8rem; position: relative; z-index: 2;
+    animation: fadeSlideUp 1.2s ease both; background: var(--cream);
+  }
+  .hero-eyebrow {
+    font-family: 'Lato', sans-serif; font-size: 0.72rem; font-weight: 300;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--terracotta); margin-bottom: 1.5rem;
+    animation: fadeSlideUp 1s 0.2s ease both;
+  }
+  .hero-title {
+    font-family: 'Cinzel', serif; font-size: clamp(2rem, 3.5vw, 3.5rem);
+    font-weight: 400; line-height: 1.05; color: var(--deep-brown);
+    margin-bottom: 1.8rem; animation: fadeSlideUp 1s 0.35s ease both;
+  }
+  .hero-title em {
+    font-style: italic; font-family: 'Cormorant Garamond', serif;
+    color: var(--terracotta); font-size: 1.15em;
+  }
+  .hero-desc {
+    font-size: 1.05rem; font-weight: 300; line-height: 1.7;
+    color: var(--charcoal); max-width: 420px; margin-bottom: 2.5rem;
+    animation: fadeSlideUp 1s 0.5s ease both;
+  }
+  .hero-btns { display: flex; gap: 1.2rem; flex-wrap: wrap; animation: fadeSlideUp 1s 0.65s ease both; }
+  .hero-right { position: relative; overflow: hidden; }
+  .hero-mosaic {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 333px 333px 334px;
+    height: 1000px;
+    gap: 3px;
+  }
+  .mosaic-cell { overflow: hidden; position: relative; }
+  .mosaic-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .mosaic-cell:nth-child(1) { grid-row: span 2; }
+  .mosaic-cell:nth-child(4) { grid-column: span 2; }
+  .mosaic-emoji {
+    width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+    font-size: 5rem; transition: transform 0.5s ease;
+  }
+  .mosaic-cell:hover .mosaic-emoji { transform: scale(1.08); }
+  .mc1 { background: linear-gradient(135deg, #e8d5b7 0%, #d4a574 100%); }
+  .mc2 { background: linear-gradient(135deg, #c8d8c0 0%, #8faa85 100%); }
+  .mc3 { background: linear-gradient(135deg, #e8c4b0 0%, #c1684a 100%); }
+  .mc4 { background: linear-gradient(135deg, #d4c4a0 0%, #b8956a 100%); }
+
+  /* ── SECTIONS ── */
+  .home-section { padding: 7rem 8rem; position: relative; }
+  .ornament-divider {
+    text-align: center; padding: 3rem 0 1rem;
+    color: var(--gold); font-size: 1.4rem; letter-spacing: 0.5rem;
+  }
+
+  /* ── STORIES ── */
+  #stories { background: var(--warm-white); }
+  #stories::before {
+    content: ''; position: absolute; top: -2px; left: 0; right: 0; height: 60px;
+    background: var(--cream); clip-path: ellipse(55% 100% at 50% 0%);
+  }
+  .stories-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+  .story-card {
+    background: var(--cream); overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;
+  }
+  .story-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px var(--soft-shadow); }
+  .story-card-header {
+    height: 220px; display: flex; align-items: center; justify-content: center;
+    font-size: 4.5rem; position: relative; overflow: hidden;
+  }
+  .sh1 { background: linear-gradient(160deg, #f0dcc0, #d4956a); }
+  .sh2 { background: linear-gradient(160deg, #c8dcc0, #7a9e72); }
+  .sh3 { background: linear-gradient(160deg, #dcd0f0, #9478c8); }
+  .story-card-body { padding: 1.8rem; }
+  .story-tag {
+    font-family: 'Lato', sans-serif; font-size: 0.65rem; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--terracotta); margin-bottom: 0.6rem;
+  }
+  .story-card h3 {
+    font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 400;
+    line-height: 1.35; margin-bottom: 0.8rem; color: var(--deep-brown);
+  }
+  .story-card p { font-size: 1rem; font-weight: 300; line-height: 1.65; color: var(--charcoal); margin-bottom: 1.2rem; }
+  .story-meta {
+    font-family: 'Lato', sans-serif; font-size: 0.72rem; color: var(--sienna);
+    letter-spacing: 0.08em; display: flex; align-items: center; gap: 0.5rem;
+  }
+  .story-meta::before { content: '✦'; font-size: 0.55rem; }
+
+  /* ── RECIPES ── */
+  #recipes { background: linear-gradient(to bottom, var(--cream), #ede3d0); }
+  .recipes-layout { display: grid; grid-template-columns: 1.4fr 1fr; gap: 5rem; align-items: start; }
+  .recipe-featured {
+    background: var(--warm-white); overflow: hidden; box-shadow: 0 15px 50px var(--soft-shadow);
+  }
+  .recipe-featured-img {
+    height: 340px; background: linear-gradient(135deg, #e8c87a, #c47a40);
+    display: flex; align-items: center; justify-content: center; font-size: 7rem; position: relative;
+  }
+  .recipe-featured-img::after {
+    content: 'FEATURED'; position: absolute; top: 1.2rem; left: 1.2rem;
+    font-family: 'Lato', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em;
+    background: var(--terracotta); color: white; padding: 0.4rem 0.9rem;
+  }
+  .recipe-featured-body { padding: 2rem 2.2rem 2.2rem; }
+  .recipe-featured-body h3 {
+    font-family: 'Cinzel', serif; font-size: 1.5rem; font-weight: 400; margin-bottom: 0.7rem; color: var(--deep-brown);
+  }
+  .recipe-stats {
+    display: flex; gap: 1.8rem; margin: 1rem 0 1.2rem;
+    font-family: 'Lato', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--sienna);
+  }
+  .recipe-list { display: flex; flex-direction: column; gap: 1.4rem; }
+  .recipe-mini {
+    display: flex; gap: 1.2rem; align-items: center; padding: 1.2rem;
+    background: var(--warm-white); cursor: pointer; transition: all 0.3s;
+    border-left: 2px solid transparent; text-decoration: none;
+  }
+  .recipe-mini:hover { border-left-color: var(--terracotta); box-shadow: 4px 4px 20px var(--soft-shadow); transform: translateX(4px); }
+  .recipe-mini-icon {
+    width: 65px; height: 65px; min-width: 65px;
+    display: flex; align-items: center; justify-content: center; font-size: 2rem; border-radius: 2px;
+  }
+  .rmi1 { background: linear-gradient(135deg, #f0e0b0, #d4a040); }
+  .rmi2 { background: linear-gradient(135deg, #d0e8d0, #70a870); }
+  .rmi3 { background: linear-gradient(135deg, #f0d0c0, #d07050); }
+  .rmi4 { background: linear-gradient(135deg, #e0d0f0, #9070d0); }
+  .recipe-mini-text h4 { font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: 400; color: var(--deep-brown); margin-bottom: 0.25rem; }
+  .recipe-mini-text p { font-family: 'Lato', sans-serif; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--sienna); }
+
+  /* ── ART ── */
+  #art { background: var(--warm-white); }
+  .art-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .art-card { cursor: pointer; overflow: hidden; background: var(--cream); transition: transform 0.3s, box-shadow 0.3s; }
+  .art-card:first-child { grid-column: span 2; }
+  .art-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px var(--soft-shadow); }
+  .art-thumb { width: 100%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+  .art-card:first-child .art-thumb { font-size: 7rem; }
+  .at1 { background: linear-gradient(135deg, #9b7070, #4a2828); }
+  .at2 { background: linear-gradient(135deg, #606080, #282848); }
+  .at3 { background: linear-gradient(135deg, #608060, #284828); }
+  .at4 { background: linear-gradient(135deg, #806040, #482018); }
+  .at5 { background: linear-gradient(135deg, #808040, #484810); }
+  .art-info { padding: 0.8rem 1rem 1rem; }
+  .art-info h4 { font-family: 'Cinzel', serif; font-size: 0.85rem; font-weight: 400; color: var(--deep-brown); margin-bottom: 0.4rem; }
+
+  /* ── ABOUT PREVIEW ── */
+  #about-preview { background: var(--cream); padding: 7rem 8rem; }
+  .about-grid { display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center; }
+  .about-img {
+    width: 500px; height: 500px;
+    background: linear-gradient(135deg, #e8d5b7 0%, #c49a6c 100%);
+    overflow: hidden;
+  }
+  .about-img img { width: 500px; height: 500px; object-fit: cover; object-position: center top; display: block; }
+
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; max-height: none; margin-top: 65px; }
+    .hero-left { padding: 3rem 3rem 3rem; }
+    .hero-right { height: 300px; }
+    .home-section { padding: 5rem 3rem; }
+    .stories-grid { grid-template-columns: 1fr 1fr; }
+    .art-grid { grid-template-columns: repeat(2, 1fr); }
+    .art-card:first-child { grid-column: span 2; }
+    .recipes-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    #about-preview { padding: 5rem 3rem; }
+  }
+  @media (max-width: 720px) {
+    .hero { margin-top: 60px; }
+    .hero-left { padding: 3rem 1.5rem; }
+    .home-section { padding: 4rem 1.5rem; }
+    .stories-grid { grid-template-columns: 1fr; }
+    .art-grid { grid-template-columns: 1fr 1fr; }
+    #about-preview { padding: 4rem 1.5rem; }
+  }
+</style>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Margaret Freeman Osha</p>
+    <h1 class="hero-title">Discover the Joys of<br><em>Rural Living</em></h1>
+    <p class="hero-desc">Join Margaret, a sixth-generation Vermonter, as she shares her heartfelt insights, passions, and the pure joys of life on the farm. With seventy years of experience, she offers a captivating glimpse into the beauty and fulfillment of rural life.</p>
+    <div class="hero-btns">
+      <a href="/stories/" class="btn-primary">Read Stories</a>
+      <a href="/art/" class="btn-ghost">Browse Art</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-mosaic">
+      <div class="mosaic-cell mc1" style="padding:0; overflow:hidden;"><img src="/assets/images/hero-winter-stream.jpg" alt="Winter stream through the Vermont woods" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"></div>
+      <div class="mosaic-cell mc2" style="padding:0;overflow:hidden;"><img src="/assets/images/hero-garden-spinach.jpg" alt="Kitchen garden in Vermont" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"></div>
+      <div class="mosaic-cell mc3" style="padding:0;overflow:hidden;"><img src="/assets/images/hero-rhubarb-bread.jpg" alt="Rhubarb bread fresh from the oven" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"></div>
+      <div class="mosaic-cell mc4" style="padding:0; overflow:hidden;"><img src="/assets/images/hero-autumn-mountain.jpg" alt="Vermont autumn mountain view" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- STORIES -->
+<section id="stories" class="home-section">
+  <div class="ornament-divider">✦ ✦ ✦</div>
+  <div class="reveal">
+    <h2 class="section-title">Stories to Savor</h2>
+    <p class="section-subtitle">My original writing — adventures, quiet moments, and everything in between.</p>
+  </div>
+  <div class="stories-grid">
+    {% set storyPosts = collections.stories | reverse %}
+    {% for post in storyPosts %}
+      {% if loop.index <= 3 %}
+      <a href="{{ post.url }}" class="story-card reveal" style="text-decoration:none;">
+        <div class="story-card-header sh{{ loop.index }}">
+          {% if post.data.category == "farming" %}🌾
+          {% elif post.data.category == "gardening" %}🌱
+          {% elif post.data.category == "journaling" %}📓
+          {% elif post.data.category == "histography" %}📜
+          {% else %}📖{% endif %}
+        </div>
+        <div class="story-card-body">
+          <h3>{{ post.data.title }}</h3>
+          <p>{{ post.data.excerpt }}</p>
+          <p class="story-meta">{{ post.date | dateDisplay }}</p>
+        </div>
+      </a>
+      {% endif %}
+    {% else %}
+      <div class="story-card reveal">
+        <div class="story-card-header sh1">🌾</div>
+        <div class="story-card-body">
+          <h3>The First Frost & What It Taught Me</h3>
+          <p>An unexpected early freeze changed how I think about timing, patience, and what it means to tend something with care.</p>
+        </div>
+      </div>
+      <div class="story-card reveal">
+        <div class="story-card-header sh2">🌱</div>
+        <div class="story-card-body">
+          <h3>Notes from the Kitchen Garden</h3>
+          <p>What started as a small raised bed turned into a years-long conversation with a patch of Vermont soil.</p>
+        </div>
+      </div>
+      <div class="story-card reveal">
+        <div class="story-card-header sh3">📓</div>
+        <div class="story-card-body">
+          <h3>Why I Still Write by Hand</h3>
+          <p>In a world of screens and speed, keeping a handwritten journal is the one daily practice I refuse to give up.</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div style="text-align:center;margin-top:3rem;" class="reveal">
+    <a href="/stories/" class="btn-ghost">View All Stories</a>
+  </div>
+</section>
+
+<!-- RECIPES -->
+<section id="recipes" class="home-section">
+  <div class="reveal">
+    <h2 class="section-title">Recipes Worth Keeping</h2>
+    <p class="section-subtitle">Drawn from Vermont tradition and shaped by the seasons, timeworn and made for everyday tables.</p>
+  </div>
+  <div class="recipes-layout">
+    {% set featuredRecipe = collections.recipes | selectattr("data.featured") | first %}
+    {% if featuredRecipe %}
+    <a href="{{ featuredRecipe.url }}" class="recipe-featured reveal" style="text-decoration:none;">
+      <div class="recipe-featured-img">🥧</div>
+      <div class="recipe-featured-body">
+        <h3>{{ featuredRecipe.data.title }}</h3>
+        <p style="font-size:1.05rem;font-weight:300;line-height:1.7;color:var(--charcoal);">{{ featuredRecipe.data.excerpt }}</p>
+        
+        <span class="btn-primary" style="font-size:0.72rem; margin-top: 1.5rem; display: inline-block;">View Full Recipe</span>
+      </div>
+    </a>
+    {% else %}
+    <div class="recipe-featured reveal">
+      <div class="recipe-featured-img">🥧</div>
+      <div class="recipe-featured-body">
+        <h3>Grandmother's Apple & Cardamom Tart</h3>
+        <p style="font-size:1.05rem;font-weight:300;line-height:1.7;color:var(--charcoal);">A buttery, spiced tart that fills my whole kitchen with warmth. This recipe has been in my family for three generations.</p>
+        
+        <a href="/recipes/" class="btn-primary" style="font-size:0.72rem; margin-top: 1.5rem; display: inline-block;">View Full Recipe</a>
+      </div>
+    </div>
+    {% endif %}
+    <div class="recipe-list">
+      {% set recentRecipes = collections.recipes | reverse %}
+      {% for recipe in recentRecipes %}
+        {% if loop.index <= 4 %}
+        <a href="{{ recipe.url }}" class="recipe-mini reveal">
+          <div class="recipe-mini-icon rmi{{ loop.index }}">
+            {% if recipe.data.category == "traditional-foodways" %}🫕
+            {% elif recipe.data.category == "baking" %}🍞
+            {% elif recipe.data.category == "local" %}🌿
+            {% elif recipe.data.category == "baking" %}🍞
+            {% else %}🧀{% endif %}
+          </div>
+          <div class="recipe-mini-text">
+            <h4>{{ recipe.data.title }}</h4>
+            <p>{{ recipe.data.category | capitalize }} · {{ recipe.data.time }}</p>
+          </div>
+        </a>
+        {% endif %}
+      {% else %}
+        <a href="/recipes/" class="recipe-mini reveal"><div class="recipe-mini-icon rmi1">🍜</div><div class="recipe-mini-text"><h4>Golden Chicken Broth</h4></div></a>
+        <a href="/recipes/" class="recipe-mini reveal"><div class="recipe-mini-icon rmi2">🥗</div><div class="recipe-mini-text"><h4>Herb Garden Salad</h4></div></a>
+        <a href="/recipes/" class="recipe-mini reveal"><div class="recipe-mini-icon rmi3">🍞</div><div class="recipe-mini-text"><h4>Dark Rye Sourdough</h4></div></a>
+        <a href="/recipes/" class="recipe-mini reveal"><div class="recipe-mini-icon rmi4">🫐</div><div class="recipe-mini-text"><h4>Blueberry Lavender Galette</h4><p>Dessert · 55 min</p></div></a>
+      {% endfor %}
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:3rem;" class="reveal">
+    <a href="/recipes/" class="btn-ghost">View All Recipes</a>
+  </div>
+</section>
+
+<!-- ART -->
+<section id="art" class="home-section">
+  <div class="reveal">
+    <h2 class="section-title">Artwork by Margaret</h2>
+    <p class="section-subtitle">My original sketches and photography prints.</p>
+  </div>
+  <div class="art-grid">
+    {% set artPieces = collections.art | reverse %}
+    {% for piece in artPieces %}
+      {% if loop.index <= 3 %}
+      <a href="{{ piece.url }}" class="art-card reveal" style="text-decoration:none;">
+        <div class="art-thumb at{{ loop.index }}">
+          {% if piece.data.image %}
+            <img src="{{ piece.data.image }}" alt="{{ piece.data.title }}" style="width:100%;height:100%;object-fit:cover;">
+          {% else %}
+            {% if piece.data.medium == "photography" %}📷{% else %}🎨{% endif %}
+          {% endif %}
+        </div>
+        <div class="art-info">
+          <h4>{{ piece.data.title }}</h4>
+          <p style="font-family:'Lato',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--terracotta);margin-top:0.4rem;">View →</p>
+        </div>
+      </a>
+      {% endif %}
+    {% else %}
+      <a href="/art/" class="art-card reveal" style="text-decoration:none;"><div class="art-thumb at1">🏔</div><div class="art-info"><h4>Mountain Dusk — No. 7</h4><p style="font-family:'Lato',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--terracotta);margin-top:0.4rem;">View →</p></div></a>
+      <a href="/art/" class="art-card reveal" style="text-decoration:none;"><div class="art-thumb at2">🌊</div><div class="art-info"><h4>Still Waters</h4><p style="font-family:'Lato',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--terracotta);margin-top:0.4rem;">View →</p></div></a>
+      <a href="/art/" class="art-card reveal" style="text-decoration:none;"><div class="art-thumb at3">🌿</div><div class="art-info"><h4>Forest Interior III</h4><p style="font-family:'Lato',sans-serif;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--terracotta);margin-top:0.4rem;">View →</p></div></a>
+    {% endfor %}
+  </div>
+  <div style="text-align:center;margin-top:3rem;" class="reveal">
+    <a href="/art/" class="btn-ghost">View All Artwork</a>
+  </div>
+</section>
+
+<!-- ABOUT PREVIEW -->
+<section id="about-preview">
+  <div class="about-grid">
+    <div class="reveal">
+      <div class="about-img"><img src="/assets/images/margaret-portrait.jpg" alt="Margaret Freeman Osha"></div>
+    </div>
+    <div class="reveal">
+      <h2 class="section-title">A Creative Life, Shared Here</h2>
+      <p style="font-size:1.15rem;font-weight:300;line-height:1.8;color:var(--charcoal);margin-bottom:1.4rem;">
+        Margaret Freeman Osha, a sixth-generation Vermonter, is deeply rooted in the state's rural landscape. Her upbringing on a hill farm in Northfield, where she lived and farmed for 45 years, shaped her enduring connection to the land and to the traditions of her ancestors.
+      </p>
+      <p style="font-size:1.15rem;font-weight:300;line-height:1.8;color:var(--charcoal);margin-bottom:2.2rem;">
+        In her retirement, Margaret Freeman Osha finds joy in the simple pleasures of life. She immerses herself in nature, taking long walks in the woods, riding her Morgan mare, and tending her garden.
+      </p>
+      <a href="/about/" class="btn-primary">Read More</a>
+    </div>
+  </div>
+</section>

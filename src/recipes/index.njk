@@ -1,0 +1,222 @@
+---
+layout: base.njk
+permalink: /recipes/
+eleventyExcludeFromCollections: true
+title: Recipes
+navActive: recipes
+solidNav: true
+---
+
+<style>
+  /* ── FEATURED ── */
+  .featured-wrap { padding: 2rem 8rem 0; background: var(--cream); }
+  .featured-recipe {
+    display: grid; grid-template-columns: 1.1fr 1fr;
+    background: var(--warm-white); overflow: hidden;
+    box-shadow: 0 12px 50px var(--soft-shadow);
+    animation: fadeSlideUp 0.9s 0.2s ease both;
+    text-decoration: none; display: grid;
+  }
+  .featured-img {
+    min-height: 380px; display: flex; align-items: center; justify-content: center;
+    font-size: 8rem; position: relative; overflow: hidden;
+  }
+  .featured-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .featured-img-placeholder { width: 100%; height: 100%; min-height: 380px; background: #c47830; display: flex; align-items: center; justify-content: center; font-size: 8rem; }
+  .featured-badge {
+    position: absolute; top: 1.2rem; left: 1.2rem;
+    font-family: 'Lato', sans-serif; font-size: 0.6rem; letter-spacing: 0.3em;
+    text-transform: uppercase; background: var(--terracotta); color: white; padding: 0.4rem 0.9rem;
+  }
+  .featured-body { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+  .recipe-tag {
+    font-family: 'Lato', sans-serif; font-size: 0.65rem; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--terracotta); margin-bottom: 0.8rem;
+  }
+  .featured-body h2 {
+    font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 400; line-height: 1.2;
+    color: var(--deep-brown); margin-bottom: 0.8rem;
+  }
+  .featured-body p {
+    font-size: 1.05rem; font-weight: 300; line-height: 1.75; color: var(--charcoal); margin-bottom: 1.5rem;
+  }
+  .recipe-stats {
+    display: flex; gap: 1.8rem;
+    font-family: 'Lato', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--sienna);
+    margin-bottom: 1.5rem;
+  }
+  .btn-primary {
+    font-family: 'Lato', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--warm-white); background: var(--deep-brown); padding: 0.9rem 2rem;
+    border: none; cursor: pointer; transition: background 0.3s; text-decoration: none;
+    display: inline-block; align-self: flex-start;
+  }
+  .btn-primary:hover { background: var(--sienna); }
+
+  /* ── RECIPE GRID ── */
+  .recipes-section { padding: 4rem 8rem 7rem; background: var(--cream); }
+  .recipes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+
+  .recipe-card {
+    background: var(--warm-white); overflow: hidden; text-decoration: none; display: block;
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s;
+  }
+  .recipe-card.visible { opacity: 1; transform: translateY(0); }
+  .recipe-card:hover { box-shadow: 0 18px 48px var(--soft-shadow); transform: translateY(-5px) !important; }
+  .recipe-card.wide { grid-column: span 2; }
+
+  .rc-img { height: 190px; display: flex; align-items: center; justify-content: center; font-size: 4.5rem; overflow: hidden; }
+  .rc-img img { width: 100%; height: 100%; object-fit: cover; }
+  .recipe-card.wide .rc-img { height: 250px; font-size: 6rem; }
+
+  .ri1 { background: #f0d890; } .ri2 { background: #c05820; } .ri3 { background: #508040; }
+  .ri4 { background: #c09020; } .ri5 { background: #a04040; } .ri6 { background: #406098; }
+  .ri7 { background: #b06040; } .ri8 { background: #587848; } .ri9 { background: #a88030; }
+
+  .rc-body { padding: 1.6rem 1.8rem 2rem; }
+  .rc-body h3 {
+    font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 400; line-height: 1.35;
+    color: var(--deep-brown); margin-bottom: 0.6rem;
+  }
+  .recipe-card.wide .rc-body h3 { font-size: 1.3rem; }
+  .rc-body p { font-size: 0.98rem; font-weight: 300; line-height: 1.65; color: var(--charcoal); margin-bottom: 1rem; }
+  .rc-meta { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+  .rc-stats { font-family: 'Lato', sans-serif; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--sienna); display: flex; gap: 1rem; }
+  .rc-link {
+    font-family: 'Lato', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--terracotta); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;
+  }
+  .rc-link:hover { border-bottom-color: var(--terracotta); }
+
+  /* ── SEASONAL ── */
+  .seasonal-band { background: linear-gradient(160deg, #3b2510, #1a0f08); padding: 5rem 8rem; }
+  .seasonal-header { text-align: center; margin-bottom: 3.5rem; }
+  .seasonal-header .section-label { color: var(--gold); }
+  .seasonal-header h2 { font-family: 'Cinzel', serif; font-size: clamp(1.8rem,3vw,2.8rem); font-weight: 400; color: var(--cream); margin-bottom: 0.8rem; }
+  .seasonal-header p { font-size: 1.1rem; font-weight: 300; color: rgba(245,240,232,0.65); max-width: 480px; margin: 0 auto; line-height: 1.7; }
+  .seasons-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .season-card { padding: 2rem 1.5rem; border: 1px solid rgba(245,240,232,0.1); transition: background 0.3s, border-color 0.3s; }
+  .season-card:hover { background: rgba(245,240,232,0.06); border-color: rgba(201,168,76,0.4); }
+  .season-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+  .season-card h4 { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 400; color: var(--gold); margin-bottom: 0.6rem; }
+  .season-card ul { list-style: none; }
+  .season-card ul li { font-size: 0.95rem; font-weight: 300; color: rgba(245,240,232,0.65); padding: 0.3rem 0; border-bottom: 1px solid rgba(245,240,232,0.07); line-height: 1.5; }
+  .season-card ul li:last-child { border-bottom: none; }
+
+  @media(max-width:1024px){
+    .featured-wrap, .recipes-section { padding-left: 3rem; padding-right: 3rem; }
+    .featured-recipe { grid-template-columns: 1fr; }
+    .featured-img { min-height: 260px; }
+    .recipes-grid { grid-template-columns: 1fr 1fr; }
+    .recipe-card.wide { grid-column: span 2; }
+    .seasonal-band { padding: 4rem 3rem; }
+    .seasons-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media(max-width:720px){
+    .featured-wrap, .recipes-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .recipes-grid { grid-template-columns: 1fr; }
+    .recipe-card.wide { grid-column: span 1; }
+    .seasonal-band { padding: 3rem 1.5rem; }
+    .seasons-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <h1 class="page-title">Recipes from<br><em>the Farmer's Kitchen</em></h1>
+    <p class="page-desc">Comforting, time-tested recipes based on tradition. Many have been in my family for generations. All of them are worth the effort.</p>
+  </div>
+</div>
+
+<!-- FEATURED RECIPE -->
+{% set featuredRecipe = collections.recipes | selectattr("data.featured") | first %}
+{% if featuredRecipe %}
+<div class="featured-wrap">
+  <a href="{{ featuredRecipe.url }}" class="featured-recipe" data-category="{{ featuredRecipe.data.category }}">
+    <div class="featured-img">
+      {% if featuredRecipe.data.image %}
+        <img src="{{ featuredRecipe.data.image }}" alt="{{ featuredRecipe.data.title }}">
+      {% else %}
+        <div class="featured-img-placeholder">
+          {% if featuredRecipe.data.category == "traditional-foodways" %}🫕{% elif featuredRecipe.data.category == "baking" %}🍞{% elif featuredRecipe.data.category == "local" %}🌿{% elif featuredRecipe.data.category == "baking" %}🍞{% elif featuredRecipe.data.category == "local" %}🌿{% else %}🧀{% endif %}
+        </div>
+      {% endif %}
+      <span class="featured-badge">Featured</span>
+    </div>
+    <div class="featured-body">
+      <h2>{{ featuredRecipe.data.title }}</h2>
+      <p>{{ featuredRecipe.data.excerpt }}</p>
+      <div class="recipe-stats">
+        {% if featuredRecipe.data.time %}{% endif %}
+        {% if featuredRecipe.data.serves %}{% endif %}
+      </div>
+      <span class="btn-primary">View Full Recipe</span>
+    </div>
+  </a>
+</div>
+{% endif %}
+
+<!-- RECIPES GRID -->
+<div class="recipes-section">
+  <div class="section-divider"><h3>All Recipes</h3></div>
+  {% set allRecipes = collections.recipes | reverse %}
+  {% if allRecipes.length %}
+  <div class="recipes-grid" id="recipesGrid">
+    {% for recipe in allRecipes %}
+    <a href="{{ recipe.url }}" class="recipe-card{% if loop.index == 1 or loop.index == 6 %} wide{% endif %}" data-category="{{ recipe.data.category }}" style="text-decoration:none;">
+      <div class="rc-img ri{{ (loop.index0 % 9) + 1 }}">
+        {% if recipe.data.image %}
+          <img src="{{ recipe.data.image }}" alt="{{ recipe.data.title }}">
+        {% else %}
+          {% if recipe.data.category == "traditional-foodways" %}🫕{% elif recipe.data.category == "baking" %}🍞{% elif recipe.data.category == "local" %}🌿{% elif recipe.data.category == "baking" %}🍞{% elif recipe.data.category == "provisioning" %}🥫{% elif recipe.data.category == "local" %}🌿{% else %}🍽{% endif %}
+        {% endif %}
+      </div>
+      <div class="rc-body">
+        <h3>{{ recipe.data.title }}</h3>
+        <p>{{ recipe.data.excerpt }}</p>
+        <div class="rc-meta">
+          <div class="rc-stats">
+            {% if recipe.data.time %}{% endif %}
+            {% if recipe.data.serves %}{% endif %}
+          </div>
+          <span class="rc-link">View Recipe →</span>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div style="text-align:center; padding: 5rem 0; color: var(--charcoal);">
+    <p style="font-size:1.2rem; font-weight:300; line-height:1.7;">Recipes coming soon — check back shortly.</p>
+  </div>
+  {% endif %}
+</div>
+
+
+<script>
+  const cards = document.querySelectorAll('.recipe-card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  cards.forEach(c => observer.observe(c));
+
+  function filterRecipes(category, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('#recipesGrid .recipe-card').forEach(card => {
+      card.style.display = (category === 'all' || card.dataset.category === category) ? '' : 'none';
+    });
+    const fw = document.querySelector('.featured-wrap');
+    if (fw) {
+      const feat = fw.querySelector('.featured-recipe');
+      fw.style.display = (category === 'all' || feat.dataset.category === category) ? '' : 'none';
+    }
+  }
+</script>

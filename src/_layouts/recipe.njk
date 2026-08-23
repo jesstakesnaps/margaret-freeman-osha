@@ -1,0 +1,60 @@
+---
+layout: base.njk
+navActive: recipes
+solidNav: true
+---
+
+<style>
+  .recipe-hero { display: grid; grid-template-columns: 1.1fr 1fr; min-height: 55vh; background: var(--warm-white); }
+  .recipe-hero-img { position: relative; overflow: hidden; min-height: 420px; }
+  .recipe-hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .recipe-hero-placeholder { width: 100%; height: 100%; min-height: 420px; background: linear-gradient(145deg,#f0d890,#c47830); display: flex; align-items: center; justify-content: center; font-size: 8rem; }
+  .recipe-hero-body { padding: 7rem 3.5rem 3.5rem; display: flex; flex-direction: column; justify-content: center; }
+  .recipe-eyebrow { font-family: 'Lato', sans-serif; font-size: 0.68rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 1rem; }
+  .recipe-title { font-family: 'Cinzel', serif; font-size: clamp(1.8rem,3.5vw,3rem); font-weight: 400; line-height: 1.1; color: var(--deep-brown); margin-bottom: 1rem; }
+  .recipe-excerpt { font-size: 1.1rem; font-weight: 300; line-height: 1.78; color: var(--charcoal); margin-bottom: 1.5rem; }
+  .recipe-meta-strip { display: flex; gap: 2rem; flex-wrap: wrap; font-family: 'Lato', sans-serif; font-size: 0.75rem; letter-spacing: 0.12em; color: var(--sienna); padding-top: 1.5rem; border-top: 1px solid rgba(44,26,14,0.12); }
+  .recipe-body { max-width: 780px; margin: 0 auto; padding: 5rem 2rem 7rem; }
+  .recipe-body h2 { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 400; color: var(--deep-brown); margin: 3rem 0 1.2rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(44,26,14,0.12); }
+  .recipe-body h3 { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 400; color: var(--deep-brown); margin: 2rem 0 0.8rem; }
+  .recipe-body p { font-size: 1.15rem; font-weight: 300; line-height: 1.9; color: var(--charcoal); margin-bottom: 1.2rem; }
+  .recipe-body ul, .recipe-body ol { margin: 0 0 1.5rem 1.5rem; }
+  .recipe-body li { font-size: 1.1rem; font-weight: 300; line-height: 1.8; color: var(--charcoal); margin-bottom: 0.4rem; }
+  .recipe-body blockquote { border-left: 2px solid var(--terracotta); padding-left: 1.5rem; margin: 2rem 0; font-style: italic; color: var(--sienna); font-size: 1.2rem; }
+  .recipe-body hr { border: none; border-top: 1px solid rgba(44,26,14,0.12); margin: 2.5rem 0; }
+  .back-link { font-family: 'Lato', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sienna); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 3rem; transition: color 0.2s; }
+  .back-link:hover { color: var(--terracotta); }
+  .recipe-source {
+    font-family: 'Lato', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em;
+    color: var(--sienna); margin-top: 3rem; padding-top: 1.5rem;
+    border-top: 1px solid rgba(44,26,14,0.1); font-style: italic;
+  }
+  @media(max-width:1024px){ .recipe-hero{grid-template-columns:1fr;} .recipe-hero-body{padding:3rem;} }
+  @media(max-width:720px){ .recipe-body{padding:3rem 1.5rem 5rem;} }
+</style>
+
+<div class="recipe-hero">
+  <div class="recipe-hero-img">
+    {% if image %}
+      <img src="{{ image }}" alt="{{ title }}">
+    {% else %}
+      <div class="recipe-hero-placeholder">🍽</div>
+    {% endif %}
+  </div>
+  <div class="recipe-hero-body">
+    <h1 class="recipe-title">{{ title }}</h1>
+    {% if excerpt %}<p class="recipe-excerpt">{{ excerpt }}</p>{% endif %}
+    <div class="recipe-meta-strip">
+      {% if time %}{% endif %}
+      {% if serves %}{% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="recipe-body">
+  <a href="/recipes/" class="back-link">← Back to all recipes</a>
+  {{ content | safe }}
+  {% if source %}
+  <p class="recipe-source">Adapted from {{ source }}</p>
+  {% endif %}
+</div>

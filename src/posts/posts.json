@@ -1,0 +1,5 @@
+{
+  "layout": "post.njk",
+  "tags": ["stories"],
+  "permalink": "/stories/{{ title | slugify }}/index.html"
+}

@@ -1,0 +1,132 @@
+---
+layout: base.njk
+title: Art
+navActive: art
+solidNav: true
+permalink: /art/
+eleventyExcludeFromCollections: true
+---
+
+<style>
+  .art-header {
+    padding: 8rem 8rem 4rem;
+    background: var(--warm-white);
+    position: relative; overflow: hidden;
+  }
+  .art-header::after {
+    content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 60px;
+    background: var(--cream); clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .art-header h1 {
+    font-family: 'Cinzel', serif; font-size: clamp(2.8rem, 5vw, 5rem);
+    font-weight: 400; line-height: 1.08; color: var(--deep-brown);
+    margin-bottom: 1.5rem;
+  }
+  .art-header p {
+    font-size: 1.2rem; font-weight: 300; line-height: 1.75;
+    color: var(--charcoal); max-width: 560px;
+  }
+
+  .gallery-section { padding: 3rem 8rem 7rem; background: var(--cream); }
+
+  .art-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 5rem; }
+
+  .art-card {
+    background: var(--warm-white); overflow: hidden; cursor: pointer;
+    text-decoration: none; display: block;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s;
+  }
+  .art-card.visible { opacity: 1; transform: translateY(0); }
+  .art-card:hover { box-shadow: 0 16px 44px var(--soft-shadow); transform: translateY(-4px) !important; }
+  .art-card.wide { grid-column: span 2; }
+
+  .art-thumb { height: 240px; display: flex; align-items: center; justify-content: center; font-size: 5rem; overflow: hidden; position: relative; }
+  .art-card.wide .art-thumb { height: 320px; font-size: 7rem; }
+  .art-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .new-badge { position: absolute; top: 1rem; left: 1rem; font-family: 'Lato', sans-serif; font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; background: var(--terracotta); color: white; padding: 0.35rem 0.8rem; }
+
+  .art-body { padding: 1.2rem 1.4rem 1.5rem; }
+  .art-body h3 { font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: 400; color: var(--deep-brown); line-height: 1.35; }
+  .art-card.wide .art-body h3 { font-size: 1.15rem; }
+
+  .gallery-empty { text-align: center; padding: 7rem 2rem; max-width: 480px; margin: 0 auto; }
+  .gallery-empty-icon { font-size: 4rem; opacity: 0.35; display: block; margin-bottom: 1.5rem; }
+  .gallery-empty h3 { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 400; color: var(--deep-brown); margin-bottom: 1rem; }
+  .gallery-empty p { font-size: 1.1rem; font-weight: 300; line-height: 1.75; color: var(--charcoal); }
+
+  .tc1{background:#6b4040;} .tc2{background:#507080;} .tc3{background:#608060;}
+  .tc4{background:#7a5050;} .tc5{background:#606040;} .tc6{background:#405060;}
+
+  .section-divider { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem; }
+  .section-divider h3 { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 400; color: var(--deep-brown); white-space: nowrap; }
+  .section-divider::after { content: ''; flex: 1; height: 1px; background: rgba(44,26,14,0.15); }
+
+  @media(max-width:1024px){
+    .art-header { padding: 7rem 3rem 3rem; }
+    .gallery-section { padding: 3rem 3rem 5rem; }
+    .art-grid { grid-template-columns: 1fr 1fr; }
+    .art-card.wide { grid-column: span 2; }
+  }
+  @media(max-width:720px){
+    .art-header { padding: 6rem 1.5rem 2.5rem; }
+    .gallery-section { padding: 2rem 1.5rem 4rem; }
+    .art-grid { grid-template-columns: 1fr; }
+    .art-card.wide { grid-column: span 1; }
+  }
+</style>
+
+<div class="art-header">
+  <h1>Artwork</h1>
+  <p>My artwork and photography are not just a reflection of my passion for Vermont's changing rural landscape, but a unique perspective that captures the natural beauty of the place I call home.</p>
+</div>
+
+<div class="gallery-section">
+
+  {% set allArt = collections.art %}
+
+  {% if allArt and allArt.length %}
+
+    {% set thumbColors = ["tc1","tc2","tc3","tc4","tc5","tc6"] %}
+    {% set thumbEmojis = ["🌿","🌅","🦊","🌊","🌻","🌄","🏔","🦌","🐦"] %}
+
+    <div class="art-grid">
+      {% for piece in allArt | reverse %}
+      <a href="{{ piece.url }}" class="art-card{% if loop.index == 1 %} wide{% endif %}">
+        <div class="art-thumb {{ thumbColors[loop.index0 % 6] }}">
+          {% if piece.data.image %}<img src="{{ piece.data.image }}" alt="{{ piece.data.title }}">
+          {% else %}{{ thumbEmojis[loop.index0 % 9] }}{% endif %}
+          {% if piece.data.featured %}<span class="new-badge">New Work</span>{% endif %}
+        </div>
+        <div class="art-body">
+          <h3>{{ piece.data.title }}</h3>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+
+  {% else %}
+
+    <div class="gallery-empty">
+      <span class="gallery-empty-icon">🎨</span>
+      <h3>New work coming soon</h3>
+      <p>I'm currently working on new pieces in the studio. Check back shortly — or <a href="mailto:turkeyhillfarmvt@gmail.com" style="color:var(--terracotta);text-decoration:none;border-bottom:1px solid rgba(193,104,74,0.3);">get in touch</a> if you'd like to be notified when new work is available.</p>
+    </div>
+
+  {% endif %}
+
+</div>
+
+<script>
+  const cards = document.querySelectorAll('.art-card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 70);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  cards.forEach(c => observer.observe(c));
+</script>

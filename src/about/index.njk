@@ -1,0 +1,117 @@
+---
+layout: base.njk
+title: About
+navActive: about
+solidNav: true
+---
+
+<style>
+  /* ── HERO ── */
+  .about-hero {
+    min-height: 90vh; display: grid; grid-template-columns: 1fr 1fr;
+    background: var(--warm-white); position: relative; overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 9rem 4rem 6rem 8rem; position: relative; z-index: 2;
+    animation: fadeSlideUp 0.9s 0.1s ease both;
+  }
+  .eyebrow { font-family: 'Lato', sans-serif; font-size: 0.68rem; font-weight: 400; letter-spacing: 0.35em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 1.2rem; }
+  .hero-name { font-family: 'Cinzel', serif; font-size: clamp(3rem, 5vw, 5.5rem); font-weight: 400; line-height: 1.05; color: var(--deep-brown); margin-bottom: 0.4rem; animation: fadeSlideUp 0.9s 0.25s ease both; }
+  .hero-subtitle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1.3rem, 2.5vw, 2rem); font-weight: 300; color: var(--terracotta); margin-bottom: 2.2rem; animation: fadeSlideUp 0.9s 0.35s ease both; }
+  .hero-intro { font-size: 1.2rem; font-weight: 300; line-height: 1.82; color: var(--charcoal); max-width: 440px; animation: fadeSlideUp 0.9s 0.45s ease both; }
+
+  .hero-right { position: relative; overflow: hidden; animation: fadeIn 1.2s 0.3s ease both; }
+  .portrait-frame { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(145deg, #e8d5b0, #c49060); position: relative; }
+  .bio-photo { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+  .bio-photo-placeholder { width: 100%; height: 100%; min-height: 500px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.2rem; background: linear-gradient(145deg, #e8d5b0, #c49060); }
+  .bio-photo-placeholder-icon { font-size: 4rem; opacity: 0.5; }
+  .bio-photo-placeholder-text { font-family: 'Lato', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(44,26,14,0.45); }
+  .portrait-frame::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, var(--warm-white) 0%, transparent 20%); pointer-events: none; }
+  .portrait-location { position: absolute; bottom: 2rem; right: 2rem; z-index: 2; font-family: 'Lato', sans-serif; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--deep-brown); background: rgba(245,240,232,0.88); padding: 0.6rem 1.2rem; backdrop-filter: blur(8px); }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote { background: var(--cream); padding: 6rem 8rem; text-align: center; }
+  .pull-quote blockquote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1.6rem, 3vw, 2.5rem); font-weight: 300; line-height: 1.5; color: var(--deep-brown); max-width: 820px; margin: 0 auto; }
+  .pull-quote cite { display: block; margin-top: 1.5rem; font-family: 'Lato', sans-serif; font-style: normal; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--sienna); }
+
+  /* ── MY STORY ── */
+  .story-section { background: var(--warm-white); padding: 7rem 8rem; position: relative; overflow: hidden; }
+  .story-section::before { content: ''; position: absolute; top: -2px; left: 0; right: 0; height: 60px; background: var(--cream); clip-path: ellipse(55% 100% at 50% 0%); }
+  .story-inner { max-width: 720px; margin: 0 auto; }
+
+  /* ── CONTACT ── */
+  .contact-band { background: linear-gradient(160deg, #3b2510, #1a0f08); padding: 6rem 8rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .contact-left .section-label { color: var(--gold); }
+  .contact-left p { font-size: 1.1rem; font-weight: 300; line-height: 1.8; color: rgba(245,240,232,0.7); }
+  .contact-right { display: flex; flex-direction: column; gap: 1.2rem; }
+  .contact-item { display: flex; align-items: flex-start; gap: 1.4rem; padding: 1.5rem; border: 1px solid rgba(245,240,232,0.1); transition: background 0.3s, border-color 0.3s; text-decoration: none; }
+  .contact-item:hover { background: rgba(245,240,232,0.06); border-color: rgba(201,168,76,0.35); }
+  .contact-icon { font-size: 1.5rem; min-width: 1.5rem; }
+  .contact-text h4 { font-family: 'Cinzel', serif; font-size: 0.9rem; font-weight: 400; color: var(--gold); margin-bottom: 0.3rem; }
+  .contact-text p { font-size: 0.95rem; font-weight: 300; color: rgba(245,240,232,0.6); line-height: 1.5; }
+
+  @media(max-width:1024px){
+    .about-hero { grid-template-columns: 1fr 1fr; min-height: auto; }
+    .hero-left { padding: 7rem 2rem 4rem 3rem; }
+    .hero-right { min-height: 400px; }
+    .pull-quote, .story-section { padding-left: 3rem; padding-right: 3rem; }
+    .contact-band { padding: 4rem 3rem; grid-template-columns: 1fr; gap: 3rem; }
+  }
+  @media(max-width:600px){
+    .about-hero { grid-template-columns: 1fr; }
+    .hero-right { order: -1; height: 280px; }
+    .hero-left { padding: 2rem 1.5rem 3rem; }
+    .pull-quote, .story-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .contact-band { padding: 3rem 1.5rem; }
+  }
+</style>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="hero-left">
+    <p class="eyebrow">Margaret Freeman Osha · About</p>
+    <h1 class="hero-name">Margaret<br>Osha</h1>
+    <p class="hero-subtitle">Writer, artist & home cook</p>
+    <p class="hero-intro">Margaret Freeman Osha, deeply rooted in Vermont's rural landscape, resides with her husband, Stuart, in a picturesque log cabin that overlooks a serene sheep pasture in Brookfield.</p>
+  </div>
+  <div class="hero-right">
+    <div class="portrait-frame">
+      {# Replace with: <img class="bio-photo" src="/assets/images/margaret-about.jpg" alt="Margaret Freeman Osha"> #}
+      <img class="bio-photo" src="/assets/images/margaret-about.jpg" alt="Margaret Freeman Osha">
+    </div>
+    <span class="portrait-location">Brookfield, Vermont</span>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<div class="pull-quote">
+  <blockquote>"Instructions for Living Life: Pay attention, be astonished, tell about it."</blockquote>
+  <cite>— Mary Oliver</cite>
+</div>
+
+<!-- MY STORY -->
+<div class="story-section">
+  <div class="story-inner">
+    <p style="font-family:'Cinzel',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:400;line-height:1.15;color:var(--deep-brown);margin-bottom:2.5rem;">Rooted on the Farm</p>
+    <p style="font-size:1.1rem;font-weight:300;line-height:1.9;color:var(--charcoal);margin-bottom:1.5rem;">Margaret Freeman Osha, a sixth-generation Vermonter, is deeply rooted in the state's rural landscape. She and her husband, Stuart, reside in a picturesque log cabin overlooking a serene sheep pasture in Brookfield. Her upbringing on a hill farm in Northfield, where she lived and farmed for 45 years, shaped her enduring connection to the land and to the traditions of her ancestors.</p>
+    <p style="font-size:1.1rem;font-weight:300;line-height:1.9;color:var(--charcoal);margin-bottom:1.5rem;">The need to start anew led the couple to Randolph Center, where they established a small, diversified farm focused on local food production, including maple sugaring with horses. Osha also taught hands-on cooking classes, educating others on cooking with farm- and wild-harvested ingredients.</p>
+    <p style="font-size:1.1rem;font-weight:300;line-height:1.9;color:var(--charcoal);">In her retirement, Margaret Freeman Osha finds joy in the simple pleasures of life. She immerses herself in nature, taking long walks in the woods, riding her Morgan mare, and tending her garden. She and her husband graze a flock of Icelandic sheep on their hillside property. Her writing, artwork, and photography reflect seven decades of living.</p>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-band">
+  <div class="contact-left">
+    <p>Whether you have a question about a piece of art, want to talk about a recipe, or just want to say hello—I genuinely love hearing from readers.</p>
+  </div>
+  <div class="contact-right">
+    <a href="mailto:turkeyhillfarmvt@gmail.com" class="contact-item">
+      <span class="contact-icon">✉️</span>
+      <div class="contact-text">
+        <h4>Email</h4>
+        <p>turkeyhillfarmvt@gmail.com — the best way to reach me for anything personal, art inquiries, or just to write.</p>
+      </div>
+    </a>
+  </div>
+</div>
