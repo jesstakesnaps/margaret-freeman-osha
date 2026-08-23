@@ -272,6 +272,9 @@ title: Stories, Recipes & Art by Margaret Freeman Osha
   </div>
   <div class="recipes-layout">
     {% set featuredRecipe = collections.recipes | selectattr("data.featured") | first %}
+    {% if not featuredRecipe %}
+      {% set featuredRecipe = collections.recipes | reverse | first %}
+    {% endif %}
     {% if featuredRecipe %}
     <a href="{{ featuredRecipe.url }}" class="recipe-featured reveal" style="text-decoration:none;">
       <div class="recipe-featured-img">🥧</div>
