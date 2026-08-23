@@ -1,0 +1,227 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/assets/images"
+public_folder: "/assets/images"
+
+collections:
+
+  # ── GLOBAL SETTINGS ──────────────────────────────────────────
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "announcement"
+        label: "Announcement Bar"
+        file: "src/_data/announcement.json"
+        fields:
+          - label: "Show announcement bar?"
+            name: "show"
+            widget: "boolean"
+            default: false
+            hint: "Turn on to show the bar across the top of every page. Turn off to hide it."
+          - label: "Announcement text"
+            name: "text"
+            widget: "string"
+            hint: "e.g. My debut book is out now —"
+            required: false
+          - label: "Link label"
+            name: "link_label"
+            widget: "string"
+            hint: "e.g. Order your copy"
+            required: false
+          - label: "Link URL"
+            name: "link_url"
+            widget: "string"
+            hint: "e.g. https://bookshop.org/your-book"
+            required: false
+
+      - name: "book"
+        label: "Book Purchase Button"
+        file: "src/_data/book.json"
+        fields:
+          - label: "Show purchase button?"
+            name: "show_button"
+            widget: "boolean"
+            default: false
+            hint: "Turn on when the book is available to purchase. Turn off to hide the button."
+          - label: "Button label"
+            name: "button_label"
+            widget: "string"
+            default: "Order Your Copy"
+            required: false
+            hint: "e.g. Order Your Copy, Buy Now"
+          - label: "Purchase URL"
+            name: "purchase_url"
+            widget: "string"
+            required: false
+            hint: "Paste the link to the purchase page when you have it"
+
+  # ── STORIES ──────────────────────────────────────────────────
+  - name: "stories"
+    label: "Stories"
+    folder: "src/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # ── ART ─────────────────────────────────────────────────
+  - name: "art"
+    label: "Art"
+    folder: "src/art"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    fields:
+
+      - { label: "Title", name: "title", widget: "string",
+          hint: "e.g. Mountain Dusk — No. 7" }
+
+      - label: "Medium"
+        name: "medium"
+        widget: "string"
+        hint: "e.g. Collage & oil on panel, 35mm film print"
+
+      - { label: "Year", name: "year", widget: "number",
+          value_type: "int", min: 2000, max: 2100, default: 2025 }
+
+      - label: "Price (USD)"
+        name: "price"
+        widget: "number"
+        value_type: "int"
+        min: 1
+        hint: "Enter price in dollars, e.g. 285"
+
+      - label: "Featured in gallery?"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        hint: "Check to show a 'New Work' badge on this piece"
+
+      - label: "Image"
+        name: "image"
+        widget: "image"
+        required: false
+        hint: "Upload a photo of the work"
+
+      - label: "Description"
+        name: "description"
+        widget: "text"
+        hint: "A short description shown on the piece's detail page"
+
+      - label: "Edition Info (photography only)"
+        name: "edition"
+        widget: "string"
+        required: false
+        hint: "e.g. Ed. of 15 — leave blank for originals"
+
+  # ── RECIPES ──────────────────────────────────────────────────
+  - name: "recipes"
+    label: "Recipes"
+    folder: "src/recipes"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    fields:
+
+      - { label: "Title", name: "title", widget: "string" }
+
+      - { label: "Excerpt", name: "excerpt", widget: "text",
+          hint: "One or two sentences shown on the recipes page" }
+
+      - { label: "Prep & Cook Time", name: "time", widget: "string",
+          hint: "e.g. 1h 20m" }
+
+      - { label: "Serves", name: "serves", widget: "string",
+          hint: "e.g. Serves 8" }
+
+      - label: "Featured recipe?"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        hint: "Check to show this recipe in the featured slot"
+
+      - label: "Image"
+        name: "image"
+        widget: "image"
+        required: false
+
+      - { label: "Body", name: "body", widget: "markdown",
+          hint: "Ingredients, method, and notes" }
+
+      - label: "Source / Adapted From"
+        name: "source"
+        widget: "string"
+        required: false
+        hint: "Optional — e.g. 'Adapted from Nigel Slater's Tender' or 'From my grandmother's handwritten card'"
+
+  # ── SPEAKING EVENTS ──────────────────────────────────────────
+  - name: "events"
+    label: "Speaking Events"
+    folder: "src/events"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{date}}"
+    fields:
+
+      - { label: "Event Name", name: "title", widget: "string",
+          hint: "e.g. Fall Into Books" }
+
+      - { label: "Date", name: "date", widget: "datetime",
+          hint: "Date of the event" }
+
+      - label: "Time"
+        name: "time"
+        widget: "string"
+        required: false
+        hint: "e.g. 10:00 am – 4:00 pm"
+
+      - label: "Location Name"
+        name: "location"
+        widget: "string"
+        hint: "e.g. Pierce Hall Community Center"
+
+      - label: "City & State"
+        name: "city"
+        widget: "string"
+        hint: "e.g. Rochester, VT"
+
+      - label: "Description"
+        name: "description"
+        widget: "text"
+        required: false
+        hint: "A short description of the event"
+
+      - label: "Admission"
+        name: "admission"
+        widget: "string"
+        required: false
+        hint: "e.g. Free admission, $10 per person"
+
+      - label: "Contact Info"
+        name: "contact"
+        widget: "string"
+        required: false
+        hint: "e.g. Sandy Lincoln, (802) 349-6444"
+
+      - label: "Website URL"
+        name: "website"
+        widget: "string"
+        required: false
+        hint: "e.g. https://vermontisbookcountry.com"
+
+      - label: "Website Label"
+        name: "website_label"
+        widget: "string"
+        required: false
+        hint: "e.g. vermontisbookcountry.com"
+
+      - label: "Featured / Upcoming badge?"
+        name: "featured"
+        widget: "boolean"
+        default: true
+        hint: "Shows an 'Upcoming' badge on the event card"
