@@ -1,27 +1,18 @@
 ---
-title: "The First Frost & What It Taught Me"
-date: 2025-10-15
+title: Summer Kitchens, Honeysuckle & Sun-Ripened Strawberries
+date: 2026-06-01T13:26:00.000-04:00
 category: vermont-history
-excerpt: "An unexpected early freeze one October changed how I think about timing, patience, and what it really means to tend something with care."
+excerpt: Many people these days are unfamiliar with what summer kitchens are and
+  with their unique history. The concept of summer kitchens first became popular
+  among wealthy landowners in the mid-to-late 1800s.
 image: /assets/images/first-frost.jpg
 ---
+The Northfield farmhouse I grew up in was built in three sections. The first section was moved to its spot on the hill by oxen. The section that contained the summer kitchen, the cream room, and the privy was torn off and replaced with a covered porch when I was young. Many people these days are unfamiliar with what summer kitchens are and with their unique history. The concept of summer kitchens first became popular among wealthy landowners in the mid-to-late 1800s. Original summer kitchens were separate two-story buildings set beside the main house. The telltale sign of a summer kitchen was the large chimney rising from the roof. The first floor was a vast workspace, with a large fireplace and a stone bake oven where the servants prepared and cooked the meals. The second story served as the servants' sleeping quarters. Within a few decades, smaller one-story summer kitchens began to appear beside the homes of less wealthy property owners, becoming especially popular among New England farm families. Some summer kitchens, like the one in the farmhouse I grew up in, were connected to the main house. In those days, women spent the summer preparing, preserving, and storing food for the long, cold months ahead. Canning was an important method of food preservation. Summer kitchens served an important purpose by keeping the intense heat from the wood cookstove away from the main house. When the weather turned cooler, cooking in the main kitchen resumed. After World War II, with the advent of electricity and gas cookstoves, summer kitchens pretty much became obsolete.
 
-It came three weeks early. I woke to a white field and a sinking feeling that I had miscalculated something fundamental.
+Even at a young age, I appreciated the structure's character. The wide floorboards in the summer kitchen impressed me. The summer kitchen was one large room. Directly across from the summer kitchen was the cream room, and beyond there the privy. I remember the cream separator, the butter churn, and other old items, with outlived purpose, merely collecting dust.
 
-The squash were still on the vine. The last of the tomatoes had not yet been picked. I stood at the kitchen window in the early grey light and watched the frost sit on everything I had spent six months growing, and I understood, in a way I hadn't before, that the farm is not mine to control.
+The abandoned cream room and privy felt mysterious and creepy to me. I didn't go in there by myself. The summer kitchen still held some activities, and I enjoyed spending time in there. The Victrola, complete with 78 records, was among the items in the summer kitchen that I especially loved. The table used for cutting up meat was stored there. We raised all our own meat, and my father did all of the butchering.  He and my mother cut up beef, venison, and pork with a hand saw and carving knives in the summer kitchen. Meat for hambburg was cut into small pieces and put through a hand-crank grinder.  As a general rule, an old dairy cow doesn't make for juicy, tender steaks. They do, on the other hand, have a lot of flavor. Hamburger and slow-cooked cuts are the best bet; both are delicious.
 
-## What I Lost
+ I can vaguely remember my mother canning meat.  The coming of the freezer was a big improvement for meat preservation, in my opinion. The canned meat was bland and uninspiring. A walk-in pantry was included in the space. I loved sneaking into the pantry and playing. My mother usually had a pie or two cooling in there. Such good smells.  With the renovations, my mother lost her walk-in pantry.  She always missed it. I did too. Our summer kitchen held a wood cookstove and a cast-iron sink on the far wall. Eventually, the unused chimney on the outside of the summer kitchen became home to a murmuration of starlings.  I was intimidated by the starlings nesting in the chimney. Their sheer numbers, loud chatter, and aggressive flight actions terrified me. When I spent time there, I did so with my mother. Even though I was intimidated by the birds, I was equally intrigued and attracted to being there.
 
-I lost about half the squash that year. The tomatoes were salvageable — frost-touched but not destroyed, and the ones we picked that morning made an unexpectedly good sauce, sweeter than usual from the cold. The kale, predictably, was fine. Kale is always fine.
-
-What I hadn't expected to lose was my confidence. I had been farming this land for three seasons by then, and I had started to believe I knew its rhythms. The frost reminded me I was still learning to read a language I would spend a lifetime studying.
-
-## What I Gained
-
-The following spring I planted the squash two weeks later. I watched the long-range forecasts more carefully. I made peace with the fact that some years the harvest will be abundant and some years it will not, and that neither outcome reflects on how much care I gave.
-
-The frost also gave me back something I had been losing without noticing: humility. There is a particular kind of arrogance that creeps in when things go well for long enough. The frost cleared it out thoroughly.
-
----
-
-I still think about that morning when the cold comes in now. I pull on my coat, walk the field, and remember that the land is not cooperating with me — I am trying to cooperate with it. The difference matters more than I can easily say.
+All around this section of the house grew the most beautiful purple Columbine. My mother called them Honeysuckles, an old-fashioned common name for this perennial. The physiology of Columbine lends itself appropriately to its nickname. The long, spurred petals are filled with sweet nectar that attracts long-tongued insects and hummingbirds, as well as little girls.

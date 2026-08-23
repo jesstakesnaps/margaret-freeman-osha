@@ -1,15 +1,19 @@
 ---
-title: "Mountain Dusk — No. 7"
-date: 2025-09-15
-category: mixed-media
-medium: "Collage & oil on panel"
-dimensions: "18 × 24 in"
-year: 2025
-price: 285
+price: 1
 available: true
+stripe_link: https://buy.stripe.com/REPLACE_ME
+dimensions: 18 × 24 in
 featured: true
-stripe_link: "https://buy.stripe.com/REPLACE_ME"
-description: "The seventh in a series of dusk studies built from layered paper, fabric scraps, and oil paint. Each one is different — the light never repeats. This is the one I almost kept."
+date: 2025-09-15
+title: Honeysuckle
+medium: Colored pencil on paper
+year: 2018
+image: /assets/images/honeysuckle.png
+description: The Northfield farmhouse I grew up at had the most beautiful purple
+  Columbine. My mother called them Honeysuckles, an old-fashioned common name
+  for this perennial. The physiology of Columbine lends itself appropriately to
+  its nickname.
+category: mixed-media
 ---
 
 The seventh in a series of dusk studies built from layered paper, fabric scraps, and oil paint — all sourced from the land around my house.
