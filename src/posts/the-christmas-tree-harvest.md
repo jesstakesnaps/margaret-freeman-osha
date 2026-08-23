@@ -1,6 +1,6 @@
 ---
 title: The Christmas Tree Harvest
-date: 2026-12-01T13:42:00.000-05:00
+date: 2025-12-01T13:42:00.000-05:00
 excerpt: Over the years, I’ve learned a thing or two about going into the woods
   to harvest a wild tree.
 ---
