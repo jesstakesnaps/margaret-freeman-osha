@@ -1,5 +1,5 @@
 ---
-title: Summer Kitchens, Honeysuckle & Sun-Ripened Strawberries
+title: Summer Kitchens, Honeysuckle, and Sun-Ripened Strawberries
 date: 2026-06-01T20:19:00.000-04:00
 excerpt: Many people these days are unfamiliar with what summer kitchens are and
   with their unique history. The concept of summer kitchens first became popular
