@@ -3,6 +3,7 @@ title: The Christmas Tree Harvest
 date: 2025-12-01T13:42:00.000-05:00
 excerpt: Over the years, I’ve learned a thing or two about going into the woods
   to harvest a wild tree.
+image: /assets/images/christmastree.jpg
 ---
 The farm where I grew up in Northfield spanned a couple of hundred acres. Woodland outsurpassed the open fields in acreage by well over half. A large portion of the forest was used as pasture. The pasture for the milking herd was on the far side of the road. Amidst the mixed forest, hidden meadows of lush grass existed. Over the years, my father built upon the meadows by expanding, caring for, and nurturing them. The cows needed to be driven to pasture down a hill about a third of a mile and across the road. We lived at the top of a mile-long dead-end road. For the most part, it took two people to cross the cows: one to drive and one to work the gates. My father worked the gates, and I was the driver. I especially enjoyed hopping onto my pinto pony bareback to get the job done. 
 
