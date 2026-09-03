@@ -9,10 +9,10 @@ title: Honeysuckle
 medium: Colored pencil on paper
 year: 2018
 image: /assets/images/honeysuckle.png
-description: The Northfield farmhouse I grew up at had the most beautiful purple
-  Columbine. My mother called them Honeysuckles, an old-fashioned common name
-  for this perennial. The physiology of Columbine lends itself appropriately to
-  its nickname.
+description: "The Northfield farmhouse I grew up at had the most beautiful
+  purple Columbine. My mother called them Honeysuckles, an old-fashioned common
+  name for this perennial. The physiology of Columbine lends itself
+  appropriately to its nickname. "
 category: mixed-media
 ---
 
