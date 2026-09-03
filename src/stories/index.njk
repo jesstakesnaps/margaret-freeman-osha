@@ -62,13 +62,13 @@ solidNav: true
   <div class="stories-grid" id="storiesGrid">
     {% set allStories = collections.stories | reverse %}
     {% for post in allStories %}
-    <a href="{{ post.url }}" class="story-card{% if loop.index == 1 or loop.index == 6 %} wide{% endif %}" data-category="{{ post.data.category }}" style="text-decoration:none;">
+    <a href="{{ post.url }}" class="story-card{% if loop.index == 1 or loop.index == 6 %} wide{% endif %}" style="text-decoration:none;">
       <div class="card-img ci{{ (loop.index0 % 6) + 1 }}">
-        {% if post.data.category == "farming" %}🌾
-        {% elif post.data.category == "gardening" %}🌱
-        {% elif post.data.category == "journaling" %}📓
-        {% elif post.data.category == "histography" %}📜
-        {% else %}📖{% endif %}
+        {% if post.data.image %}
+          <img src="{{ post.data.image }}" alt="{{ post.data.title }}" style="width:100%;height:100%;object-fit:cover;display:block;">
+        {% else %}
+          📖
+        {% endif %}
       </div>
       <div class="card-body">
         <h3>{{ post.data.title }}</h3>
