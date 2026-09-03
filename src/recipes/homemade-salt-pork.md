@@ -5,6 +5,7 @@ excerpt: I keep both salt pork and lard in the freezer these days. Curing salt
 time: 4 days
 serves: "-"
 featured: false
+image: /assets/images/lard.jpg
 ---
 I keep both salt pork and lard in the freezer these days. Curing salt pork in small batches is easy to do in the refrigerator. With the addition of fragrant spices, juniper berries, and a touch of maple sugar, the finished product is elevated to a whole new level. Instead of using oil in a fry pan, I slice a ¼- to ½-inch piece of salt pork, cut it into strips, and use the rendered fat for sautéing. The cracklings make a great garnish for just about any dish. If you cannot source maple sugar, you can substitute it with brown sugar. Feel free to leave out the maple sugar and the spices for a more traditional take on salt pork. Since you will be using your freezer for storage, you can adjust the saltiness by decreasing the suggested curing time in the recipe below. Look for locally-grown pork and pork belly at farmers’ markets, butcher shops, and co-ops. Be creative and enjoy!
 

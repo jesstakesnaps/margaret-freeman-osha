@@ -4,6 +4,7 @@ date: 2026-08-23T13:47:00.000-04:00
 excerpt: Haying consumed most of the summer at the farm. Acreage that would take
   a man all summer to hay in yesteryears takes a few short days in today's world
   of farming.
+image: /assets/images/lemonade.jpg
 ---
 The dog days of summer is a phrase that dates back to the ancient astronomy of Greece, Egypt, and Rome. The star Sirius was considered the watchdog that coincided with the Nile River's annual flooding, long before the construction of the Aswan High Dam. Hellenistic astrology linked the star's appearance to bad luck, drought, sudden thunderstorms, lethargy, sickness, and mad dogs. The star's rising and setting with the sun in midsummer contributed to the oppressive heat and severe weather. My mother, not unlike the ancient astrologers, looked upon this period of time with a distrustful eye. If my mother ever knew about Sirius, the Dog Star constellation, she never let on to me. Leary of the dog days and what they represented, my mother prepared for the worst. She warned me against pestering the dog. According to her, even a kind dog could potentially turn mean on a sticky, hot day. So, naturally, I associated the phrase "dog days" with mad dogs. 
 

@@ -7,6 +7,7 @@ excerpt: A perfect side dish for summer barbeques and get-togethers. Briny
 time: 1h 15m
 serves: 6–8
 featured: false
+image: /assets/images/orzo.jpg
 ---
 A perfect side dish for summer barbeques and get-togethers. Briny olives, sun-dried tomatoes, and feta cheese combine to create a rich, savory Mediterranean flavor profile that pairs perfectly with fresh herbs and a tangy lemon-anchovy dressing. Unlike a mayonnaise-based salad, this one is fresh and light, doesn't get soggy, and can sit out at room temperature for a couple of hours with less concern for food safety. Use your creativity and customize it with your favorite herbs and additions. If you don't like anchovies, feel free to omit them. I can guarantee that you won't know they're there, and the umami complexity will significantly enhance the dish. Not an olive fan? Improvise using capers. Have fun!
 
