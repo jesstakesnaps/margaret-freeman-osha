@@ -114,8 +114,11 @@ solidNav: true
   </div>
 
   <div class="art-description">
-    {{ content | safe }}
-    {% if not content %}<p>An original work by Margaret Freeman Osha, made in her Vermont studio.</p>{% endif %}
+    {% if description %}
+      <p>{{ description | safe }}</p>
+    {% elif content and content | trim %}
+      {{ content | safe }}
+    {% endif %}
   </div>
 
   <div class="detail-section">
@@ -128,16 +131,15 @@ solidNav: true
     </ul>
   </div>
 
-
   <div class="more-works">
     <h2>More from the Gallery</h2>
     <div class="more-works-grid">
       {% set thumbClasses = ["mwt1","mwt2","mwt3","mwt4","mwt5","mwt6"] %}
       {% set thumbEmojis = ["🌿","🌅","🦊","🌊","🌻","🌄"] %}
-      {% set count = 0 %}
+      {% set shown = 0 %}
       {% for piece in collections.art | reverse %}
-        {% if piece.url != page.url and count < 3 %}
-          {% set count = count + 1 %}
+        {% if piece.url != page.url and shown < 3 %}
+          {% set shown = shown + 1 %}
           <a href="{{ piece.url }}" class="more-work-card">
             <div class="more-work-thumb {{ thumbClasses[loop.index0 % 6] }}">
               {% if piece.data.image %}
@@ -152,6 +154,9 @@ solidNav: true
           </a>
         {% endif %}
       {% endfor %}
+    </div>
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="/art/" class="btn-ghost">Back to Gallery</a>
     </div>
   </div>
 
