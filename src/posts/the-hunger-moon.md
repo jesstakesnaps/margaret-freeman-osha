@@ -5,6 +5,7 @@ excerpt: February was the season for cutting firewood on our farm. My father had
   a yellow John Deere bulldozer with a front blade. We called the imposing
   earthmover that crept along slowly on steel tracks through almost any terrain
   “The Crawler.”
+image: /assets/images/lard.jpg
 ---
 Deep in the heart of winter, the February moon shines brightly on the snow, casting a mirage of long, dancing shadows across the hills and valleys. Full moons seem especially bright, enchanting, and beautifully illuminated by a blanket of white snow. Years ago, my husband assembled a cedar clothesline for me. As intended, it was exceptionally good at drying clothes. Most of all, I was dazzled by its year-round, eye-catching charm. Each summer, I surrounded the sizable cedar posts with a planting of cosmos flowers. The tall annuals with delicate fern-like foliage and cup-shaped pink-and-white flowers were a beautiful sight, gently swaying in the breeze and appearing to dance with the clothes on the line. On moonlit winter nights, the long shadows cast by the cedar posts and crossbars were visually captivating. Upon waking in the middle of the night, I would sit with the shadows and admire the beauty and form of the clothesline from the bathroom window. 
 
