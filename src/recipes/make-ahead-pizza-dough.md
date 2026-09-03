@@ -4,6 +4,7 @@ excerpt: We don’t buy pizza out anymore; nothing else compares to making your 
 time: Overnight
 serves: 3–4
 featured: true
+image: /assets/images/pizza.jpg
 ---
 Being out in the crisp, cold air, trudging through the snow while looking for the perfect Christmas tree, is sure to work up an appetite. What an ideal occasion for homemade pizza. We don’t buy pizza out anymore; nothing else compares to making your own. I have a 16-inch perforated pizza pan that I consider an essential kitchen item. If you don’t have one, you can always improvise. This is my go-to recipe. It's a bit different: the crust is pre-baked, allowing the pizza to be assembled ahead of time, popped into the oven, and ready to eat in under 15 minutes. A fully assembled pizza can also be frozen and popped into a hot oven for a quick meal. 
 
