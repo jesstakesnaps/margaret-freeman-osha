@@ -35,7 +35,6 @@
 
 <!-- MOBILE MENU -->
 <div class="nav-mobile" id="mobileMenu">
-  <button class="nav-mobile-close" id="mobileClose">Close ✕</button>
   <a href="/stories/" {% if navActive == "stories" %}class="active"{% endif %} onclick="closeMobileMenu()">Stories</a>
   <a href="/recipes/" {% if navActive == "recipes" %}class="active"{% endif %} onclick="closeMobileMenu()">Recipes</a>
   <a href="/art/" {% if navActive == "art" %}class="active"{% endif %} onclick="closeMobileMenu()">Art</a>
@@ -79,10 +78,8 @@
 
 <script src="/assets/js/main.js"></script>
 <script>
-  // Hamburger menu
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
-  const mobileClose = document.getElementById('mobileClose');
 
   function openMobileMenu() {
     mobileMenu.classList.add('open');
@@ -95,8 +92,13 @@
     document.body.style.overflow = '';
   }
 
-  hamburger.addEventListener('click', openMobileMenu);
-  mobileClose.addEventListener('click', closeMobileMenu);
+  hamburger.addEventListener('click', function() {
+    if (mobileMenu.classList.contains('open')) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  });
 </script>
 </body>
 </html>

@@ -94,12 +94,6 @@ nav.scrolled, nav.solid {
   transition: color 0.2s;
 }
 .nav-mobile a:hover, .nav-mobile a.active { color: var(--terracotta); }
-.nav-mobile .nav-mobile-close {
-  position: absolute; top: 1.5rem; right: 2rem;
-  font-family: 'Lato', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--sienna); cursor: pointer;
-  background: none; border: none;
-}
 
 /* ── BUTTONS ── */
 .btn-primary {
