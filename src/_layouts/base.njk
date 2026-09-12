@@ -16,7 +16,18 @@
 {% if pageCSS %}<style>{{ pageCSS | safe }}</style>{% endif %}
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
-<body>
+<body {% if announcement.show %}class="has-announcement"{% endif %}>
+
+{% if announcement.show %}
+<div class="announcement-bar" id="announcementBar">
+  <p>
+    {{ announcement.text }}
+    {% if announcement.link_url and announcement.link_label %}
+    <a href="{{ announcement.link_url }}" target="_blank" rel="noopener">{{ announcement.link_label }} →</a>
+    {% endif %}
+  </p>
+</div>
+{% endif %}
 
 <!-- NAV -->
 <nav id="navbar" {% if solidNav %}class="solid"{% endif %}>
@@ -41,17 +52,6 @@
   <a href="/book/" {% if navActive == "book" %}class="active"{% endif %} onclick="closeMobileMenu()">Book</a>
   <a href="/about/" {% if navActive == "about" %}class="active"{% endif %} onclick="closeMobileMenu()">About</a>
 </div>
-
-{% if announcement.show %}
-<div class="announcement-bar">
-  <p>
-    {{ announcement.text }}
-    {% if announcement.link_url and announcement.link_label %}
-    <a href="{{ announcement.link_url }}" target="_blank" rel="noopener">{{ announcement.link_label }} →</a>
-    {% endif %}
-  </p>
-</div>
-{% endif %}
 
 {{ content | safe }}
 
@@ -80,6 +80,15 @@
 <script>
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
+
+  // Offset nav below announcement bar if present
+  const bar = document.getElementById('announcementBar');
+  const navbar = document.getElementById('navbar');
+  if (bar && navbar) {
+    const barHeight = bar.offsetHeight;
+    navbar.style.top = barHeight + 'px';
+    mobileMenu.style.paddingTop = (barHeight + 60) + 'px';
+  }
 
   function openMobileMenu() {
     mobileMenu.classList.add('open');
