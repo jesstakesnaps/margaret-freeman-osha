@@ -3,6 +3,7 @@ title: Meadowscaping With Wildflowers
 date: 2026-09-12T14:37:00.000-04:00
 excerpt: "The original idea of a wildflower garden came to us a few years ago
   when a small strip of lawn next to the driveway volunteered itself. "
+image: /assets/images/meadow-scaping-photo.png
 ---
 Bees and butterflies of all sizes drift from one flower to the next now that dog days of summer are upon us. It’s a special time of the year when the heat lingers into the evening, fireflies twinkle in the night sky, and flashes of heat lightning add to the show.  Garden overwhelm has set in with peas, raspberries, and blueberries ready for the freezer, all demanding immediate attention. Every trip out the door and to the garden takes me past a meadow of wildflowers where I take time to see what's blooming new each day. I love watching the delicate flowers sway in the breeze. The diverse variety of wildflowers is better than I expected to see. This is the first year of the meadow's creation. Day by day, something new pops up that wasn’t there the day before. Currently, the meadow has taken on a Monet look that puts me into a dreamy state of reflection.  
 
