@@ -1,7 +1,8 @@
 ---
 title: Homemade Salt Pork
-excerpt: I keep both salt pork and lard in the freezer these days. Curing salt
-  pork in small batches is easy to do in the refrigerator.
+excerpt: "I keep both salt pork and lard in the freezer these days. Curing salt
+  pork in small batches is easy to do in the refrigerator. The image is of leaf
+  lard. "
 time: 4 days
 serves: "-"
 featured: false
