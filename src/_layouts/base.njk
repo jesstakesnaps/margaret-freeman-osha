@@ -88,9 +88,19 @@
   function adjustLayout() {
     const barHeight = bar ? bar.offsetHeight : 0;
     const navHeight = navbar ? navbar.offsetHeight : 72;
+    const totalOffset = barHeight + navHeight;
+
     if (navbar) navbar.style.top = barHeight + 'px';
-    if (hero) hero.style.marginTop = (barHeight + navHeight) + 'px';
-    if (mobileMenu) mobileMenu.style.paddingTop = (barHeight + navHeight + 20) + 'px';
+    if (mobileMenu) mobileMenu.style.paddingTop = (totalOffset + 20) + 'px';
+
+    // Apply to homepage hero
+    if (hero) hero.style.marginTop = totalOffset + 'px';
+
+    // Apply to all page headers on other pages
+    const pageHeaders = document.querySelectorAll('.page-header, .art-header, .book-hero, .privacy-header, .about-hero, .post-hero-plain, .post-hero-img, .recipe-hero');
+    pageHeaders.forEach(el => {
+      el.style.paddingTop = (totalOffset + 40) + 'px';
+    });
   }
 
   adjustLayout();
