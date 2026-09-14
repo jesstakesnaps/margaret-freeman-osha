@@ -7,7 +7,7 @@ title: Stories, Recipes & Art by Margaret Freeman Osha
   /* ── HERO ── */
   .hero {
     display: grid; grid-template-columns: 1fr 1fr;
-    height: 1000px; position: relative; overflow: hidden; margin-top: 72px;
+    height: 1000px; position: relative; overflow: hidden;
   }
   .hero-left {
     display: flex; flex-direction: column; justify-content: center;
@@ -168,7 +168,7 @@ title: Stories, Recipes & Art by Margaret Freeman Osha
   .about-img img { width: 500px; height: 500px; object-fit: cover; object-position: center top; display: block; }
 
   @media (max-width: 1024px) {
-    .hero { grid-template-columns: 1fr; min-height: auto; max-height: none; margin-top: 65px; }
+    .hero { grid-template-columns: 1fr; min-height: auto; max-height: none; }
     .hero-left { padding: 3rem 3rem 3rem; }
     .hero-right { height: 400px; }
     .hero-mosaic { grid-template-rows: 133px 133px 134px; height: 400px; }
@@ -183,7 +183,7 @@ title: Stories, Recipes & Art by Margaret Freeman Osha
     #about-preview { padding: 5rem 3rem; }
   }
   @media (max-width: 720px) {
-    .hero { margin-top: 60px; }
+    .hero { }
     .hero-left { padding: 2.5rem 1.5rem; }
     .hero-right { height: 320px; }
     .hero-mosaic { grid-template-rows: 106px 106px 108px; height: 320px; }

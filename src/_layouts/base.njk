@@ -81,14 +81,20 @@
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
 
-  // Offset nav below announcement bar if present
   const bar = document.getElementById('announcementBar');
   const navbar = document.getElementById('navbar');
-  if (bar && navbar) {
-    const barHeight = bar.offsetHeight;
-    navbar.style.top = barHeight + 'px';
-    mobileMenu.style.paddingTop = (barHeight + 60) + 'px';
+  const hero = document.querySelector('.hero');
+
+  function adjustLayout() {
+    const barHeight = bar ? bar.offsetHeight : 0;
+    const navHeight = navbar ? navbar.offsetHeight : 72;
+    if (navbar) navbar.style.top = barHeight + 'px';
+    if (hero) hero.style.marginTop = (barHeight + navHeight) + 'px';
+    if (mobileMenu) mobileMenu.style.paddingTop = (barHeight + navHeight + 20) + 'px';
   }
+
+  adjustLayout();
+  window.addEventListener('resize', adjustLayout);
 
   function openMobileMenu() {
     mobileMenu.classList.add('open');
