@@ -1,16 +1,21 @@
 ---
-title: Fall Into Books
-date: 2026-09-20
-time: 10:00 am – 4:00 pm
-location: Pierce Hall Community Center
-city: Rochester, VT
-description: Vermont Antiquarian Booksellers Association's Vermont Fall Book,
-  Postcard & Ephemera Fair. A wonderful gathering of book lovers, collectors,
-  and writers in the heart of Vermont. I will be giving a talk about A Farmhouse
-  Notebook at 11:00. Hope to see you there!
+title: Author Talk & Book Signing
+date: 2026-11-18T18:00:00.000-05:00
+time: 6:00 PM
+location: Kimball Public Library
+city: Randolph, VT
+description: A lifelong Vermonter who grew up on a Northfield dairy farm,
+  Margaret Freeman Osha draws on the wisdom of generations in A FARMHOUSE
+  NOTEBOOK, a collection of stories, drawings, and recipes first published in
+  the White River Valley Herald. With a foreword by Herald editor Tim Calabro,
+  the book offers a close-up glimpse of farmstead life, past and present, as
+  observed by a natural historian with a passionate connection to the land. To
+  celebrate its publication by Korongo Books, Margaret will visit libraries and
+  community centers around the state, talking with Vermonters about how
+  knowledge gleaned from our agrarian past can help us shape a better future.
 admission: Free admission
-contact: Sandy Lincoln, (802) 349-6444
-website: https://vermontisbookcountry.com
-website_label: vermontisbookcountry.com
+contact: ""
+website: https://kimballlibrary.org
+website_label: Kimball Public Library
 featured: true
 ---
