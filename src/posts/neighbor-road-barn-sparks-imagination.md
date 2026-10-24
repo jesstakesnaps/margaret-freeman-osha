@@ -2,6 +2,7 @@
 title: Neighbor Road Barn Sparks Imagination
 date: 2026-10-24T14:45:00.000-04:00
 excerpt: A familiar old barn with a colorful history.
+image: /assets/images/neighbor-road-barn.png
 ---
 I often walk and ride horseback past this barn along an old route that connects to Morgan Mile Road. Each time I pass, I’m transported back in time, imagining what life here might have been like. The Neighbor Road Barn in Brookfield has a rich history. Like many old barns, it stopped housing milking cows when bulk milk tanks became necessary.
 
